@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { ChevronDown, ChevronUp, MapPin } from "lucide-react";
 import { vacancies } from "@/src/data/vacancies";
 import { NoxButton } from "@/src/components/ui/nox-button";
@@ -16,7 +16,7 @@ const filters = [
 
 type FilterId = (typeof filters)[number]["id"];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -25,7 +25,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
