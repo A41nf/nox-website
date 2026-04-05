@@ -151,7 +151,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={toggleLocale}
-            className="rounded-full border border-white/15 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/80 transition-colors hover:border-nox-red hover:text-white"
+            className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 px-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/80 transition-colors hover:border-nox-red hover:text-white"
             aria-label="Toggle language"
           >
             EN <span className="text-white/40">|</span>{" "}
@@ -164,6 +164,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             ariaLabel={navText.bookNow}
             size="md"
+            className="h-11 rounded-full bg-[#E80028] px-6 text-sm font-bold md:text-sm"
           >
             {navText.bookNow}
           </Button>
