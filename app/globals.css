@@ -1,26 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@config "../tailwind.config.ts";
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --nox-black: #0d0d0d;
+  --nox-red: #e80028;
+  --nox-white: #ffffff;
+  --nox-grey: #1a1a1a;
+  --nox-light: #f5f5f5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--nox-black);
+  color: var(--nox-white);
+  font-family: "Inter", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+[lang="ar"],
+.arabic {
+  font-family: "Cairo", system-ui, sans-serif;
+}
+
+::selection {
+  background-color: var(--nox-red);
+  color: var(--nox-white);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--nox-red) var(--nox-grey);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--nox-grey);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid var(--nox-grey);
+  border-radius: 9999px;
+  background: var(--nox-red);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--nox-red);
+  outline-offset: 2px;
+}
+
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(232, 0, 40, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 0, 40, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out both;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out both;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out both;
+}
+
+.animate-pulse-red {
+  animation: pulse-red 2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-red {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(232, 0, 40, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(232, 0, 40, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
