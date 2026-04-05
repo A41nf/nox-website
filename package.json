@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^5.15.9",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@sanity/image-url": "^2.1.1",
