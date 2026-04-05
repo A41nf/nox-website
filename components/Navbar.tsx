@@ -33,6 +33,7 @@ export default function Navbar() {
     { href: "/", label: navText.home },
     { href: "/about", label: navText.about },
     { href: "/coaches", label: navText.coaches },
+    { href: "/careers", label: navText.careers },
     { href: "/calculators", label: navText.calculators },
     { href: "/schedule", label: navText.schedule },
     { href: "/blog", label: navText.blog },

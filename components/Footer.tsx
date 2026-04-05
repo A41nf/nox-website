@@ -10,6 +10,7 @@ const servicesLinks = [
 const companyLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About NOX" },
+  { href: "/careers", label: "Careers" },
   { href: "/start-here", label: "Start Here" },
 ];
 
