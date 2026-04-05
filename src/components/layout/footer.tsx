@@ -4,7 +4,7 @@ import { contactDetails, navItems } from "@/src/data/site-content";
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-black">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-[1.3fr_1fr_1fr] md:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-[1.3fr_1fr_1fr_1fr] md:px-8">
         <div>
           <div className="text-3xl font-black tracking-[0.45em] text-white">
             NO<span className="text-[#E80028]">X</span>
@@ -38,6 +38,15 @@ export function Footer() {
             <a href={contactDetails.whatsapp} target="_blank" rel="noreferrer" className="block transition hover:text-white">
               واتساب
             </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-bold tracking-[0.28em] text-[#E80028]">انضم إلينا</h3>
+          <div className="mt-5 flex flex-col gap-3">
+            <Link href="/careers" className="text-sm text-white/72 transition hover:text-white">
+              وظائف
+            </Link>
           </div>
         </div>
       </div>

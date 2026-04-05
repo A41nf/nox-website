@@ -22,12 +22,7 @@ export function Navbar() {
    */
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  // Inline bilingual label until a dedicated i18n/messages system is introduced.
-  const careersNavItem = {
-    label: { ar: "وظائف", en: "Careers" },
-    href: "/careers",
-  };
-  const primaryNavItems = [...navItems, { label: careersNavItem.label.ar, href: careersNavItem.href }];
+  const primaryNavItems = navItems;
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0D0D0D]/88 backdrop-blur-xl">
