@@ -1,16 +1,6 @@
-export type Vacancy = {
-  id: string;
-  title: string;
-  titleEn: string;
-  type: "full" | "part";
-  location: string;
-  description: string;
-  requirements: string[];
-  whatsapp: string;
-  isOpen: boolean;
-};
+import type { CareerOpening } from "@/lib/types";
 
-export const vacancies: Vacancy[] = [
+export const vacancies: CareerOpening[] = [
   {
     id: "personal-trainer",
     title: "مدرب لياقة بدنية شخصي",

@@ -122,3 +122,17 @@ export type SiteSettings = {
   instagramUrl?: string | null;
   tiktokUrl?: string | null;
 };
+
+export type CareerOpening = {
+  _id?: string;
+  id: string;
+  title: string;
+  titleEn?: string | null;
+  type: "full" | "part";
+  location: string;
+  description: string;
+  requirements?: string[] | null;
+  whatsapp?: string | null;
+  isOpen?: boolean | null;
+  order?: number | null;
+};

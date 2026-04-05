@@ -58,6 +58,7 @@ export const navItems = [
   { href: "/about", label: "عن NOX" },
   { href: "/services", label: "الخدمات" },
   { href: "/coaches", label: "المدربون" },
+  { href: "/careers", label: "الوظائف" },
   { href: "/contact", label: "تواصل معنا" },
 ] as const;
 

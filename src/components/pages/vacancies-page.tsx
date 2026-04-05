@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { ChevronDown, ChevronUp, MapPin } from "lucide-react";
-import { vacancies } from "@/src/data/vacancies";
 import { NoxButton } from "@/src/components/ui/nox-button";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
+import type { CareerOpening } from "@/lib/types";
 
 const filters = [
   { id: "all", label: "الكل" },
@@ -34,11 +34,15 @@ const cardVariants: Variants = {
   },
 };
 
-export function VacanciesPage() {
+type VacanciesPageProps = {
+  vacancies: CareerOpening[];
+};
+
+export function VacanciesPage({ vacancies }: VacanciesPageProps) {
   const [activeFilter, setActiveFilter] = useState<FilterId>("all");
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
 
-  const openVacancies = vacancies.filter((vacancy) => vacancy.isOpen);
+  const openVacancies = vacancies.filter((vacancy) => vacancy.isOpen !== false);
   const filteredVacancies =
     activeFilter === "all"
       ? openVacancies
@@ -161,7 +165,7 @@ export function VacanciesPage() {
                           className="overflow-hidden"
                         >
                           <ul className="space-y-3 px-5 pb-5 text-right text-sm leading-7 text-white/68">
-                            {vacancy.requirements.map((requirement) => (
+                            {(vacancy.requirements ?? []).map((requirement) => (
                               <li key={requirement} className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3">
                                 {requirement}
                               </li>
@@ -173,7 +177,7 @@ export function VacanciesPage() {
                   </div>
 
                   <NoxButton
-                    href={`https://wa.me/${vacancy.whatsapp}?text=${encodeURIComponent(
+                    href={`https://wa.me/${vacancy.whatsapp ?? "96812345678"}?text=${encodeURIComponent(
                       `أهلاً، أود التقدم لوظيفة: ${vacancy.title}`,
                     )}`}
                     target="_blank"

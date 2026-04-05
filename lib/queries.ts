@@ -39,3 +39,19 @@ export async function getGuides() {
 export async function getSiteSettings() {
   return client.fetch(`*[_type == "siteSettings"][0]`);
 }
+
+export async function getCareerOpenings() {
+  return client.fetch(`*[_type == "careerOpening"] | order(order asc, _createdAt desc){
+    _id,
+    "id": coalesce(id.current, _id),
+    title,
+    titleEn,
+    type,
+    location,
+    description,
+    requirements,
+    whatsapp,
+    isOpen,
+    order
+  }`);
+}
