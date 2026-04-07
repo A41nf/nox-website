@@ -47,7 +47,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
 
   return (
     <section className={`mx-auto w-full max-w-7xl px-4 pt-10 md:px-8 ${isArabic ? "font-cairo" : ""}`}>
-      <SectionHeader label={b.label} title={b.title} description={b.description} />
+      <SectionHeader label={b.label} title={b.title} description={b.description} as="h1" />
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
         {postData.map((post, i) => (

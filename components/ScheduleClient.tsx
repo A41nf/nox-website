@@ -84,7 +84,7 @@ export default function ScheduleClient({ schedule }: ScheduleClientProps) {
 
   return (
     <section className={`mx-auto w-full max-w-7xl px-4 pt-10 md:px-8 ${isArabic ? "font-cairo" : ""}`}>
-      <SectionHeader label={sc.label} title={sc.title} description={sc.description} />
+      <SectionHeader label={sc.label} title={sc.title} description={sc.description} as="h1" />
 
       <div className="mt-8 grid gap-4 rounded-2xl border border-white/10 bg-nox-grey/55 p-5 lg:grid-cols-2">
         <FilterBar

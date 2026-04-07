@@ -79,7 +79,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <p className="mt-6 text-xs uppercase tracking-[0.16em] text-white/70">
+          <p className="mt-6 text-xs uppercase tracking-[0.16em] text-white/75">
             Part of Stamina Fitness
           </p>
         </div>

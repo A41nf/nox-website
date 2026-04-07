@@ -31,7 +31,7 @@ export default function TestimonialsClient({ testimonials }: TestimonialsClientP
   return (
     <div className={`mx-auto w-full max-w-7xl px-4 pt-10 md:px-8 ${isArabic ? "font-cairo" : ""}`}>
       <AnimatedSection preset="slideUp">
-        <SectionHeader label={te.label} title={te.title} description={te.description} />
+        <SectionHeader label={te.label} title={te.title} description={te.description} as="h1" />
       </AnimatedSection>
 
       <AnimatedSection delay={0.08} className="mt-10 grid gap-4 lg:grid-cols-3">
@@ -52,7 +52,7 @@ export default function TestimonialsClient({ testimonials }: TestimonialsClientP
               </div>
               <p className="mt-2 text-xs uppercase tracking-[0.16em] text-nox-red">{testimonial.result}</p>
               <p className="mt-5 text-sm leading-relaxed text-white/80">{testimonial.quote}</p>
-              <p className="mt-5 text-xs uppercase tracking-[0.16em] text-white/70">
+              <p className="mt-5 text-xs uppercase tracking-[0.16em] text-white/75">
                 {te.durationLabel}: {testimonial.duration}
               </p>
             </article>

@@ -68,6 +68,7 @@ export default function CoachesClient({ coaches }: CoachesClientProps) {
         label={c.label}
         title={c.title}
         description={c.description}
+        as="h1"
       />
 
       <div className="mt-8 flex flex-wrap gap-2" role="toolbar" aria-label={c.filterLabel}>

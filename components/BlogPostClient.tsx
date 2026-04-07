@@ -41,7 +41,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
             {t.blog.categories[post.category as keyof typeof t.blog.categories] ?? post.category}
           </span>
         ) : null}
-        {date ? <span className="text-xs uppercase tracking-[0.16em] text-white/70">{date}</span> : null}
+        {date ? <span className="text-xs uppercase tracking-[0.16em] text-white/75">{date}</span> : null}
       </div>
 
       <h1 className="mt-4 text-4xl font-black uppercase leading-tight text-white md:text-6xl">

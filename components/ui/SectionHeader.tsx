@@ -4,6 +4,7 @@ type SectionHeaderProps = {
   description?: string;
   align?: "left" | "center";
   id?: string;
+  as?: "h1" | "h2" | "h3";
 };
 
 export default function SectionHeader({
@@ -12,6 +13,7 @@ export default function SectionHeader({
   description,
   align = "left",
   id,
+  as: HeadingTag = "h2",
 }: SectionHeaderProps) {
   const isCenter = align === "center";
 
@@ -20,12 +22,12 @@ export default function SectionHeader({
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nox-red">
         {label}
       </p>
-      <h2
+      <HeadingTag
         id={id}
         className="mt-3 text-3xl font-black uppercase leading-tight text-nox-white md:text-5xl"
       >
         {title}
-      </h2>
+      </HeadingTag>
       <div
         className={
           isCenter

@@ -11,7 +11,7 @@ export default function ContactClient() {
 
   return (
     <section className={`mx-auto w-full max-w-7xl px-4 pt-10 md:px-8 ${isArabic ? "font-cairo" : ""}`}>
-      <SectionHeader label={c.label} title={c.title} description={c.description} />
+      <SectionHeader label={c.label} title={c.title} description={c.description} as="h1" />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-2">
         <form className="rounded-2xl border border-white/10 bg-nox-grey/55 p-6 md:p-8" aria-label={c.contactFormAria}>

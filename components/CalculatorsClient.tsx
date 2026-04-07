@@ -271,7 +271,7 @@ function CalculatorCard({
   return (
     <article className="rounded-2xl border border-white/10 bg-nox-grey/60 p-6">
       <h2 className="text-2xl font-bold text-white">{title}</h2>
-      <p className="mt-2 text-sm text-white/70">{description}</p>
+      <p className="mt-2 text-sm text-white/75">{description}</p>
       <div className="mt-5">{children}</div>
     </article>
   );

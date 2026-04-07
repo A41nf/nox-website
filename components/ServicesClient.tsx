@@ -26,7 +26,7 @@ export default function ServicesClient({ services }: ServicesClientProps) {
 
   return (
     <section className={`mx-auto w-full max-w-7xl px-4 pt-10 md:px-8 ${isArabic ? "font-cairo" : ""}`}>
-      <SectionHeader label={s.label} title={s.title} description={s.description} />
+      <SectionHeader label={s.label} title={s.title} description={s.description} as="h1" />
 
       <div className="mt-10 grid gap-7 lg:grid-cols-3">
         {serviceData.map((service, index: number) => {

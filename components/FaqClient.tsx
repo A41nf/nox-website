@@ -45,7 +45,7 @@ export default function FaqClient({ faqItems }: FaqClientProps) {
 
   return (
     <section className={`mx-auto w-full max-w-7xl px-4 pt-10 md:px-8 ${isArabic ? "font-cairo" : ""}`}>
-      <SectionHeader label={f.label} title={f.title} description={f.description} />
+      <SectionHeader label={f.label} title={f.title} description={f.description} as="h1" />
 
       <div className="mt-10 space-y-8">
         {Object.entries(groups).map(([categoryKey, questions]) => (

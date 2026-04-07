@@ -3,6 +3,7 @@ type SectionHeadingProps = {
   title: string;
   description: string;
   align?: "right" | "center";
+  as?: "h1" | "h2" | "h3";
 };
 
 export function SectionHeading({
@@ -10,15 +11,16 @@ export function SectionHeading({
   title,
   description,
   align = "right",
+  as: HeadingTag = "h2",
 }: SectionHeadingProps) {
   const alignClass = align === "center" ? "text-center mx-auto" : "text-right";
 
   return (
     <div className={`max-w-3xl ${alignClass}`}>
       <p className="text-xs font-bold tracking-[0.35em] text-[#E80028]">{eyebrow}</p>
-      <h2 className="mt-4 text-3xl font-black leading-tight text-white md:text-5xl">
+      <HeadingTag className="mt-4 text-3xl font-black leading-tight text-white md:text-5xl">
         {title}
-      </h2>
+      </HeadingTag>
       <p className="mt-5 text-base leading-8 text-white/80 md:text-lg">{description}</p>
     </div>
   );
