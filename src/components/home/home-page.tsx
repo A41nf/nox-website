@@ -16,7 +16,7 @@ import { SectionHeading } from "@/src/components/ui/section-heading";
 
 export function HomePage() {
   return (
-    <div className="overflow-hidden">
+    <main className="overflow-hidden">
       <HeroSection />
       <AboutTeaser />
       <ServicesTeaser />
@@ -25,7 +25,7 @@ export function HomePage() {
       <TestimonialsSection />
       <CtaSection />
       <ContactTeaser />
-    </div>
+    </main>
   );
 }
 
@@ -43,7 +43,7 @@ function HeroSection() {
               <span className="block text-[#E80028]">بشدة نخبوية</span>
               <span className="block text-white/82">ولغة عربية أولاً</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-9 text-white/72 md:text-xl">
+            <p className="mt-7 max-w-2xl text-lg leading-9 text-white/80 md:text-xl">
               NOX يقدم تجربة تدريب شخصية بوتيك في مسقط: تركيز كامل، برامج واضحة، بيئة سوداء حادة، ونتائج لا تعتمد على الحماس المؤقت.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
@@ -58,17 +58,17 @@ function HeroSection() {
         <Reveal delay={0.12}>
           <div className="relative rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
             <div className="rounded-[1.6rem] border border-[#E80028]/25 bg-[linear-gradient(180deg,rgba(232,0,40,0.12),rgba(255,255,255,0.02))] p-7">
-              <p className="text-sm font-bold tracking-[0.28em] text-white/52">RAW / PREMIUM / INTENSE</p>
+              <p className="text-sm font-bold tracking-[0.28em] text-white/80">RAW / PREMIUM / INTENSE</p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {heroStats.map((stat) => (
                   <div key={stat.label} className="rounded-2xl border border-white/10 bg-black/40 p-4">
                     <p className="text-3xl font-black text-[#E80028]">{stat.value}</p>
-                    <p className="mt-2 text-sm leading-7 text-white/65">{stat.label}</p>
+                    <p className="mt-2 text-sm leading-7 text-white/80">{stat.label}</p>
                   </div>
                 ))}
               </div>
               <div className="mt-8 rounded-2xl border border-white/10 bg-black/50 p-5">
-                <p className="text-sm text-white/68">
+                <p className="text-sm text-white/80">
                   نخدم العملاء بالعربية افتراضياً، مع قابلية التوسع إلى الإنجليزية، الفرنسية، والهندية داخل نفس التجربة.
                 </p>
               </div>
@@ -96,7 +96,7 @@ function AboutTeaser() {
             <article className="h-full rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-7">
               <p className="text-sm font-bold tracking-[0.3em] text-[#E80028]">0{index + 1}</p>
               <h3 className="mt-5 text-2xl font-black text-white">{pillar.title}</h3>
-              <p className="mt-4 text-base leading-8 text-white/68">{pillar.text}</p>
+              <p className="mt-4 text-base leading-8 text-white/80">{pillar.text}</p>
             </article>
           </Reveal>
         ))}
@@ -126,14 +126,14 @@ function ServicesTeaser() {
                     <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E80028]/15 text-[#E80028]">
                       <Icon size={22} />
                     </div>
-                    <span className="text-sm text-white/45">{service.duration}</span>
+                    <span className="text-sm text-white/75">{service.duration}</span>
                   </div>
                   <h3 className="mt-6 text-2xl font-black text-white">{service.title}</h3>
                   <p className="mt-3 text-sm text-[#E80028]">{service.subtitle}</p>
-                  <p className="mt-5 text-base leading-8 text-white/68">{service.description}</p>
+                  <p className="mt-5 text-base leading-8 text-white/80">{service.description}</p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {service.bullets.slice(0, 3).map((bullet) => (
-                      <span key={bullet} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/60">
+                      <span key={bullet} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/80">
                         {bullet}
                       </span>
                     ))}
@@ -169,7 +169,7 @@ function WhyNoxSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-black text-white">{item.title}</h3>
-                  <p className="mt-3 text-base leading-8 text-white/66">{item.description}</p>
+                  <p className="mt-3 text-base leading-8 text-white/80">{item.description}</p>
                 </div>
               </article>
             </Reveal>
@@ -197,15 +197,15 @@ function CoachesTeaser() {
               <article className="h-full rounded-[2rem] border border-white/10 bg-black/55 p-7">
                 <p className="text-sm tracking-[0.3em] text-[#E80028]">{coach.role}</p>
                 <h3 className="mt-4 text-2xl font-black text-white">{coach.name}</h3>
-                <p className="mt-4 text-base leading-8 text-white/68">{coach.bio}</p>
+                <p className="mt-4 text-base leading-8 text-white/80">{coach.bio}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {coach.specialties.map((specialty) => (
-                    <span key={specialty} className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/62">
+                    <span key={specialty} className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/80">
                       {specialty}
                     </span>
                   ))}
                 </div>
-                <p className="mt-6 border-r-2 border-[#E80028] pr-4 text-sm leading-7 text-white/60">
+                <p className="mt-6 border-r-2 border-[#E80028] pr-4 text-sm leading-7 text-white/80">
                   {coach.quote}
                 </p>
               </article>
@@ -231,13 +231,13 @@ function TestimonialsSection() {
         {testimonials.map((item, index) => (
           <Reveal key={item.name} delay={index * 0.08}>
             <article className="h-full rounded-[2rem] border border-white/10 bg-white/[0.04] p-7">
-              <p className="text-lg leading-9 text-white/74">“{item.quote}”</p>
+              <p className="text-lg leading-9 text-white/80">“{item.quote}”</p>
               <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/10 pt-5">
                 <div>
                   <p className="font-black text-white">{item.name}</p>
                   <p className="mt-1 text-sm text-[#E80028]">{item.result}</p>
                 </div>
-                <ArrowUpLeft className="text-white/35" size={18} />
+                <ArrowUpLeft className="text-white/75" size={18} />
               </div>
             </article>
           </Reveal>
@@ -252,11 +252,11 @@ function CtaSection() {
     <section className="px-4 py-10 md:px-8">
       <Reveal>
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[2.2rem] border border-[#E80028]/30 bg-[linear-gradient(135deg,rgba(232,0,40,0.24),rgba(13,13,13,1)_52%,rgba(255,255,255,0.03))] p-8 md:p-12">
-          <p className="text-xs font-bold tracking-[0.36em] text-white/55">START NOW</p>
+          <p className="text-xs font-bold tracking-[0.36em] text-white/80">START NOW</p>
           <h2 className="mt-5 max-w-3xl text-3xl font-black leading-tight text-white md:text-5xl">
             إذا أردت تجربة تدريب تشبه معاييرك لا الأعذار المحيطة بك، NOX جاهز.
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-white/72">
+          <p className="mt-5 max-w-2xl text-base leading-8 text-white/80">
             ابدأ باستشارة تعريفية، شاركنا الهدف الحالي، وسنقترح المسار الأنسب حسب وقتك ومستوى التزامك.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -279,7 +279,7 @@ function ContactTeaser() {
           <div>
             <p className="text-xs font-bold tracking-[0.35em] text-[#E80028]">CONTACT</p>
             <h2 className="mt-4 text-3xl font-black text-white">تواصل معنا وحدد موعدك الأول</h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-white/68">
+            <p className="mt-5 max-w-2xl text-base leading-8 text-white/80">
               {contactDetails.address}، {contactDetails.hours}. يمكنك التواصل عبر الهاتف، البريد، أو واتساب.
             </p>
           </div>

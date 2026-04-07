@@ -56,7 +56,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
   };
 
   return (
-    <div dir="rtl" className="pb-16 md:pb-24">
+    <main dir="rtl" className="pb-16 md:pb-24">
       <section className="border-b border-white/10 bg-[linear-gradient(135deg,rgba(232,0,40,0.18),rgba(13,13,13,0.98),rgba(13,13,13,1))]">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
           <Reveal>
@@ -66,7 +66,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
                 انضم إلى فريق NOX
               </h1>
               <div className="mt-6 h-1 w-24 rounded-full bg-[#E80028]" />
-              <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">
+              <p className="mt-6 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
                 نبني في NOX ثقافة لياقة نخبوية تقوم على الانضباط، الحضور، والنتائج الحقيقية.
                 إذا كنت ترى التدريب كمسؤولية يومية لا مجرد وظيفة، فهذه فرصتك.
               </p>
@@ -97,7 +97,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
                   className={`rounded-full border px-5 py-3 text-sm font-bold transition ${
                     active
                       ? "border-[#E80028] bg-[#E80028] text-white shadow-[0_18px_50px_rgba(232,0,40,0.24)]"
-                      : "border-white/10 bg-white/5 text-white/72 hover:border-[#E80028] hover:text-white"
+                      : "border-white/10 bg-white/5 text-white/80 hover:border-[#E80028] hover:text-white"
                   }`}
                 >
                   {filter.label}
@@ -131,19 +131,19 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="text-right">
                       <h2 className="text-2xl font-black text-white md:text-3xl">{vacancy.title}</h2>
-                      <p className="mt-2 text-sm tracking-[0.22em] text-white/45">{vacancy.titleEn}</p>
+                      <p className="mt-2 text-sm tracking-[0.22em] text-white/75">{vacancy.titleEn}</p>
                     </div>
                     <span className={`rounded-full px-4 py-2 text-xs font-bold ${badgeClass}`}>
                       {vacancy.type === "full" ? "دوام كامل" : "دوام جزئي"}
                     </span>
                   </div>
 
-                  <div className="mt-6 flex items-center justify-end gap-2 text-sm text-white/68">
+                  <div className="mt-6 flex items-center justify-end gap-2 text-sm text-white/80">
                     <span>{vacancy.location}</span>
                     <MapPin size={16} className="text-[#E80028]" />
                   </div>
 
-                  <p className="mt-6 text-base leading-8 text-white/68">{vacancy.description}</p>
+                  <p className="mt-6 text-base leading-8 text-white/80">{vacancy.description}</p>
 
                   <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-white/[0.03]">
                     <button
@@ -164,7 +164,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
                           transition={{ duration: 0.25, ease: "easeOut" }}
                           className="overflow-hidden"
                         >
-                          <ul className="space-y-3 px-5 pb-5 text-right text-sm leading-7 text-white/68">
+                          <ul className="space-y-3 px-5 pb-5 text-right text-sm leading-7 text-white/80">
                             {(vacancy.requirements ?? []).map((requirement) => (
                               <li key={requirement} className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3">
                                 {requirement}
@@ -192,7 +192,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
           </motion.div>
         ) : (
           <Reveal delay={0.12}>
-            <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/[0.03] px-6 py-14 text-center text-lg font-bold text-white/72">
+            <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/[0.03] px-6 py-14 text-center text-lg font-bold text-white/80">
               لا توجد وظائف متاحة حالياً
             </div>
           </Reveal>
@@ -203,7 +203,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
             <p className="text-2xl font-black text-white md:text-3xl">
               لم تجد ما يناسبك؟ أرسل لنا سيرتك الذاتية
             </p>
-            <p className="mt-4 text-base leading-8 text-white/68">
+            <p className="mt-4 text-base leading-8 text-white/80">
               إذا كنت مناسباً لأسلوب NOX، نرغب في التعرف عليك حتى لو لم تجد الدور المثالي الآن.
             </p>
             <NoxButton
@@ -217,6 +217,6 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
           </div>
         </Reveal>
       </section>
-    </div>
+    </main>
   );
 }

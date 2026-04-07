@@ -6,7 +6,7 @@ import { SectionHeading } from "@/src/components/ui/section-heading";
 
 export function AboutPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <main className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
           eyebrow="عن الاستوديو"
@@ -19,10 +19,10 @@ export function AboutPage() {
         <Reveal>
           <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
             <h2 className="text-2xl font-black text-white">الهوية</h2>
-            <p className="mt-5 text-base leading-8 text-white/70">
+            <p className="mt-5 text-base leading-8 text-white/80">
               NOX اختصار لـ No Excuse Personal Training. الهوية كلها تدور حول الصراحة، الانضباط، والمستوى العالي في كل تفصيلة من لحظة الوصول إلى تقييم النتائج.
             </p>
-            <p className="mt-5 text-base leading-8 text-white/70">
+            <p className="mt-5 text-base leading-8 text-white/80">
               نعتمد العربية لغة افتراضية لأن السوق المحلي يستحق تجربة راقية تتحدث بلغته أولاً، مع قابلية واضحة للتوسع إلى الإنجليزية، الفرنسية، والهندية لعملاء مسقط المتنوعين.
             </p>
           </section>
@@ -31,7 +31,7 @@ export function AboutPage() {
         <Reveal delay={0.1}>
           <section className="rounded-[2rem] border border-[#E80028]/25 bg-[linear-gradient(180deg,rgba(232,0,40,0.14),rgba(255,255,255,0.03))] p-8">
             <h2 className="text-2xl font-black text-white">الموقع والتواصل</h2>
-            <div className="mt-6 space-y-3 text-base leading-8 text-white/74">
+            <div className="mt-6 space-y-3 text-base leading-8 text-white/80">
               <p>{contactDetails.address}</p>
               <p>{contactDetails.hours}</p>
               <p>{contactDetails.phone}</p>
@@ -47,7 +47,7 @@ export function AboutPage() {
             <article className="rounded-[1.8rem] border border-white/10 bg-black/50 p-7">
               <p className="text-sm font-bold tracking-[0.3em] text-[#E80028]">0{index + 1}</p>
               <h3 className="mt-5 text-2xl font-black text-white">{pillar.title}</h3>
-              <p className="mt-4 text-base leading-8 text-white/68">{pillar.text}</p>
+              <p className="mt-4 text-base leading-8 text-white/80">{pillar.text}</p>
             </article>
           </Reveal>
         ))}
@@ -60,14 +60,14 @@ export function AboutPage() {
             {languageItems.map((item) => (
               <div key={item.en} className="rounded-2xl border border-white/10 bg-black/40 p-5">
                 <p className="text-lg font-black text-white">{item.ar}</p>
-                <p className="mt-2 text-sm text-white/55">{item.en}</p>
-                <p className="mt-1 text-sm text-white/40">{item.fr}</p>
-                <p className="mt-1 text-sm text-white/40">{item.hi}</p>
+                <p className="mt-2 text-sm text-white/80">{item.en}</p>
+                <p className="mt-1 text-sm text-white/75">{item.fr}</p>
+                <p className="mt-1 text-sm text-white/75">{item.hi}</p>
               </div>
             ))}
           </div>
         </section>
       </Reveal>
-    </div>
+    </main>
   );
 }

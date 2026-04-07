@@ -9,7 +9,7 @@ export function Footer() {
           <div className="text-3xl font-black tracking-[0.45em] text-white">
             NO<span className="text-[#E80028]">X</span>
           </div>
-          <p className="mt-4 max-w-md text-base leading-8 text-white/68">
+          <p className="mt-4 max-w-md text-base leading-8 text-white/80">
             مساحة تدريب شخصية بوتيك لعملاء يبحثون عن نتائج حقيقية، انضباط واضح، وتجربة خاصة لا تقبل الحلول الوسط.
           </p>
         </div>
@@ -18,7 +18,7 @@ export function Footer() {
           <h3 className="text-sm font-bold tracking-[0.28em] text-[#E80028]">التنقل</h3>
           <div className="mt-5 flex flex-col gap-3">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className="text-sm text-white/72 transition hover:text-white">
+              <Link key={item.href} href={item.href} className="text-sm text-white/80 transition hover:text-white">
                 {item.label}
               </Link>
             ))}
@@ -27,7 +27,7 @@ export function Footer() {
 
         <div>
           <h3 className="text-sm font-bold tracking-[0.28em] text-[#E80028]">التواصل</h3>
-          <div className="mt-5 space-y-3 text-sm text-white/72">
+          <div className="mt-5 space-y-3 text-sm text-white/80">
             <p>{contactDetails.address}</p>
             <a href={`tel:${contactDetails.phone}`} className="block transition hover:text-white">
               {contactDetails.phone}
@@ -44,14 +44,14 @@ export function Footer() {
         <div>
           <h3 className="text-sm font-bold tracking-[0.28em] text-[#E80028]">انضم إلينا</h3>
           <div className="mt-5 flex flex-col gap-3">
-            <Link href="/careers" className="text-sm text-white/72 transition hover:text-white">
+            <Link href="/careers" className="text-sm text-white/80 transition hover:text-white">
               وظائف
             </Link>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-white/45 md:px-8">
+      <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-white/75 md:px-8">
         © 2026 NOX Personal Training. No Excuse Personal Training / تدريب بلا أعذار
       </div>
     </footer>

@@ -7,7 +7,7 @@ import { SectionHeading } from "@/src/components/ui/section-heading";
 
 export function ContactPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <main className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
           eyebrow="تواصل معنا"
@@ -20,7 +20,7 @@ export function ContactPage() {
         <Reveal>
           <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
             <h2 className="text-2xl font-black text-white">بيانات التواصل</h2>
-            <div className="mt-6 space-y-5 text-base leading-8 text-white/72">
+            <div className="mt-6 space-y-5 text-base leading-8 text-white/80">
               <p>
                 <span className="text-white">العنوان:</span> {contactDetails.address}
               </p>
@@ -48,7 +48,7 @@ export function ContactPage() {
         <Reveal delay={0.1}>
           <section className="rounded-[2rem] border border-[#E80028]/25 bg-[linear-gradient(180deg,rgba(232,0,40,0.12),rgba(255,255,255,0.03))] p-8">
             <h2 className="text-2xl font-black text-white">رسالة أولية مقترحة</h2>
-            <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-black/45 p-6 text-base leading-8 text-white/72">
+            <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-black/45 p-6 text-base leading-8 text-white/80">
               السلام عليكم، أرغب في بدء برنامج تدريب مع NOX. هدفي الحالي هو تحسين اللياقة/خسارة الدهون/بناء القوة، ووقتي المتاح هو 3 إلى 4 مرات أسبوعياً. أفضّل معرفة أنسب باقة وخطوة البداية.
             </div>
           </section>
@@ -65,12 +65,12 @@ export function ContactPage() {
                   <Icon size={20} />
                 </div>
                 <h3 className="mt-5 text-2xl font-black text-white">{item.title}</h3>
-                <p className="mt-4 text-base leading-8 text-white/68">{item.description}</p>
+                <p className="mt-4 text-base leading-8 text-white/80">{item.description}</p>
               </article>
             </Reveal>
           );
         })}
       </div>
-    </div>
+    </main>
   );
 }

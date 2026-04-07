@@ -32,7 +32,7 @@ export function Navbar() {
             <div className="text-2xl font-black tracking-[0.45em] text-white md:text-3xl">
               NO<span className="text-[#E80028]">X</span>
             </div>
-            <div className="mt-1 text-[10px] font-semibold tracking-[0.3em] text-white/55 md:text-xs">
+            <div className="mt-1 text-[10px] font-semibold tracking-[0.3em] text-white/80 md:text-xs">
               تدريب بلا أعذار
             </div>
           </div>
@@ -46,7 +46,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-sm font-bold transition ${active ? "text-[#E80028]" : "text-white/78 hover:text-white"}`}
+                  className={`text-sm font-bold transition ${active ? "text-[#E80028]" : "text-white/85 hover:text-white"}`}
                 >
                   {item.label}
                 </Link>
@@ -55,7 +55,7 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/60">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80">
               AR / EN / FR / HI
             </span>
             <NoxButton href="/contact">احجز استشارة</NoxButton>
