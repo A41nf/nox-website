@@ -61,8 +61,8 @@ export function AboutPage() {
               <div key={item.en} className="rounded-2xl border border-white/10 bg-black/40 p-5">
                 <p className="text-lg font-black text-white">{item.ar}</p>
                 <p className="mt-2 text-sm text-white/80">{item.en}</p>
-                <p className="mt-1 text-sm text-white/75">{item.fr}</p>
-                <p className="mt-1 text-sm text-white/75">{item.hi}</p>
+                <p className="mt-1 text-sm text-white/80">{item.fr}</p>
+                <p className="mt-1 text-sm text-white/80">{item.hi}</p>
               </div>
             ))}
           </div>

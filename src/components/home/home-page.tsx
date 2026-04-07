@@ -126,7 +126,7 @@ function ServicesTeaser() {
                     <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E80028]/15 text-[#E80028]">
                       <Icon size={22} />
                     </div>
-                    <span className="text-sm text-white/75">{service.duration}</span>
+                    <span className="text-sm text-white/80">{service.duration}</span>
                   </div>
                   <h3 className="mt-6 text-2xl font-black text-white">{service.title}</h3>
                   <p className="mt-3 text-sm text-[#E80028]">{service.subtitle}</p>
@@ -237,7 +237,7 @@ function TestimonialsSection() {
                   <p className="font-black text-white">{item.name}</p>
                   <p className="mt-1 text-sm text-[#E80028]">{item.result}</p>
                 </div>
-                <ArrowUpLeft className="text-white/75" size={18} />
+                <ArrowUpLeft className="text-white/80" size={18} />
               </div>
             </article>
           </Reveal>
@@ -285,7 +285,7 @@ function ContactTeaser() {
           </div>
           <a
             href={`tel:${contactDetails.phone}`}
-            className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-black/50 px-6 py-4 text-sm font-bold text-white transition hover:border-[#E80028]"
+            className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-black/50 px-6 py-4 text-sm font-bold text-white transition hover:border-[#E80028] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
           >
             <PhoneCall size={18} className="text-[#E80028]" />
             {contactDetails.phone}

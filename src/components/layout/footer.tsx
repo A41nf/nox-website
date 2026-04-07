@@ -18,7 +18,11 @@ export function Footer() {
           <h3 className="text-sm font-bold tracking-[0.28em] text-[#E80028]">التنقل</h3>
           <div className="mt-5 flex flex-col gap-3">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className="text-sm text-white/80 transition hover:text-white">
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-md text-sm text-white/80 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              >
                 {item.label}
               </Link>
             ))}
@@ -29,13 +33,24 @@ export function Footer() {
           <h3 className="text-sm font-bold tracking-[0.28em] text-[#E80028]">التواصل</h3>
           <div className="mt-5 space-y-3 text-sm text-white/80">
             <p>{contactDetails.address}</p>
-            <a href={`tel:${contactDetails.phone}`} className="block transition hover:text-white">
+            <a
+              href={`tel:${contactDetails.phone}`}
+              className="rounded-md block transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
               {contactDetails.phone}
             </a>
-            <a href={`mailto:${contactDetails.email}`} className="block transition hover:text-white">
+            <a
+              href={`mailto:${contactDetails.email}`}
+              className="rounded-md block transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
               {contactDetails.email}
             </a>
-            <a href={contactDetails.whatsapp} target="_blank" rel="noreferrer" className="block transition hover:text-white">
+            <a
+              href={contactDetails.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md block transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
               واتساب
             </a>
           </div>
@@ -44,14 +59,17 @@ export function Footer() {
         <div>
           <h3 className="text-sm font-bold tracking-[0.28em] text-[#E80028]">انضم إلينا</h3>
           <div className="mt-5 flex flex-col gap-3">
-            <Link href="/careers" className="text-sm text-white/80 transition hover:text-white">
+            <Link
+              href="/careers"
+              className="rounded-md text-sm text-white/80 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
               وظائف
             </Link>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-white/75 md:px-8">
+      <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-white/80 md:px-8">
         © 2026 NOX Personal Training. No Excuse Personal Training / تدريب بلا أعذار
       </div>
     </footer>

@@ -27,7 +27,10 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0D0D0D]/88 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
-        <Link href="/" className="group">
+        <Link
+          href="/"
+          className="group rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
+        >
           <div className="text-right">
             <div className="text-2xl font-black tracking-[0.45em] text-white md:text-3xl">
               NO<span className="text-[#E80028]">X</span>
@@ -46,7 +49,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-sm font-bold transition ${active ? "text-[#E80028]" : "text-white/85 hover:text-white"}`}
+                  className={`rounded-md text-sm font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] ${active ? "text-[#E80028]" : "text-white/85 hover:text-white"}`}
                 >
                   {item.label}
                 </Link>
@@ -64,7 +67,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] lg:hidden"
           onClick={() => setOpen((value) => !value)}
           aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}
         >
@@ -87,7 +90,7 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className={`rounded-2xl px-4 py-3 text-right text-sm font-bold transition ${pathname === item.href ? "bg-[#E80028] text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"}`}
+                  className={`rounded-2xl px-4 py-3 text-right text-sm font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] ${pathname === item.href ? "bg-[#E80028] text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"}`}
                 >
                   {item.label}
                 </Link>

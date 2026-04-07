@@ -19,7 +19,7 @@ export function SectionHeading({
       <h2 className="mt-4 text-3xl font-black leading-tight text-white md:text-5xl">
         {title}
       </h2>
-      <p className="mt-5 text-base leading-8 text-white/72 md:text-lg">{description}</p>
+      <p className="mt-5 text-base leading-8 text-white/80 md:text-lg">{description}</p>
     </div>
   );
 }

@@ -34,7 +34,7 @@ export function ServicesPage() {
                 </div>
                 <div className="grid gap-5 md:grid-cols-2">
                   <div className="rounded-[1.5rem] border border-white/10 bg-black/45 p-6">
-                    <p className="text-sm font-bold tracking-[0.28em] text-white/75">المحتوى</p>
+                    <p className="text-sm font-bold tracking-[0.28em] text-white/80">المحتوى</p>
                     <div className="mt-5 space-y-3">
                       {service.bullets.map((bullet) => (
                         <div key={bullet} className="rounded-2xl bg-white/5 px-4 py-3 text-sm text-white/80">
@@ -44,14 +44,14 @@ export function ServicesPage() {
                     </div>
                   </div>
                   <div className="rounded-[1.5rem] border border-[#E80028]/25 bg-[linear-gradient(180deg,rgba(232,0,40,0.12),rgba(255,255,255,0.03))] p-6">
-                    <p className="text-sm font-bold tracking-[0.28em] text-white/75">التفاصيل</p>
+                    <p className="text-sm font-bold tracking-[0.28em] text-white/80">التفاصيل</p>
                     <div className="mt-5 space-y-5">
                       <div>
-                        <p className="text-sm text-white/75">المدة</p>
+                        <p className="text-sm text-white/80">المدة</p>
                         <p className="mt-1 text-xl font-black text-white">{service.duration}</p>
                       </div>
                       <div>
-                        <p className="text-sm text-white/75">السعر</p>
+                        <p className="text-sm text-white/80">السعر</p>
                         <p className="mt-1 text-xl font-black text-white">{service.price}</p>
                       </div>
                       <p className="text-sm leading-7 text-white/80">

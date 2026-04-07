@@ -94,7 +94,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
                   key={filter.id}
                   type="button"
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`rounded-full border px-5 py-3 text-sm font-bold transition ${
+                  className={`rounded-full border px-5 py-3 text-sm font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] ${
                     active
                       ? "border-[#E80028] bg-[#E80028] text-white shadow-[0_18px_50px_rgba(232,0,40,0.24)]"
                       : "border-white/10 bg-white/5 text-white/80 hover:border-[#E80028] hover:text-white"
@@ -131,7 +131,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="text-right">
                       <h2 className="text-2xl font-black text-white md:text-3xl">{vacancy.title}</h2>
-                      <p className="mt-2 text-sm tracking-[0.22em] text-white/75">{vacancy.titleEn}</p>
+                      <p className="mt-2 text-sm tracking-[0.22em] text-white/80">{vacancy.titleEn}</p>
                     </div>
                     <span className={`rounded-full px-4 py-2 text-xs font-bold ${badgeClass}`}>
                       {vacancy.type === "full" ? "دوام كامل" : "دوام جزئي"}
@@ -149,7 +149,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
                     <button
                       type="button"
                       onClick={() => toggleCard(vacancy.id)}
-                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-sm font-bold text-white transition hover:text-[#E80028]"
+                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-sm font-bold text-white transition hover:text-[#E80028] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
                     >
                       <span>{expanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}</span>
                       <span>متطلبات الوظيفة</span>

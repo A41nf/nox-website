@@ -25,7 +25,7 @@ export function NoxButton({
   target,
   rel,
 }: NoxButtonProps) {
-  const classes = `inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-bold transition duration-300 ${variants[variant]} ${className}`;
+  const classes = `inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-bold transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] ${variants[variant]} ${className}`;
 
   if (href) {
     return (
