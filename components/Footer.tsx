@@ -38,7 +38,7 @@ export default function Footer() {
     <footer className="mt-20 bg-black text-white">
       <div className="mx-auto grid w-full max-w-7xl gap-12 px-4 py-14 md:grid-cols-2 md:px-8 lg:grid-cols-6">
         <div className="lg:col-span-2">
-          <Link href="/" aria-label="NOX home" className="inline-flex flex-col">
+          <Link href="/" className="inline-flex flex-col">
             <span className="text-3xl font-black tracking-[0.24em]">
               NO<span className="text-nox-red">X</span>
             </span>
