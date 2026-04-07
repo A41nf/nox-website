@@ -54,7 +54,7 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          aria-label="NOX home"
+          aria-label="NOX No Excuse Personal Training – go to home page"
           className="group inline-flex flex-col leading-none"
         >
           <span className="text-2xl font-black tracking-[0.28em] text-white md:text-3xl">
@@ -152,7 +152,7 @@ export default function Navbar() {
             type="button"
             onClick={toggleLocale}
             className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 px-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/80 transition-colors hover:border-nox-red hover:text-white"
-            aria-label="Toggle language"
+            aria-label="EN | AR – Toggle language"
           >
             EN <span className="text-white/40">|</span>{" "}
             <span className="arabic font-cairo">AR</span>
@@ -175,7 +175,7 @@ export default function Navbar() {
             type="button"
             onClick={toggleLocale}
             className="rounded-full border border-white/20 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85"
-            aria-label="Toggle language"
+            aria-label="EN | AR – Toggle language"
           >
             EN | <span className="arabic font-cairo">AR</span>
           </button>
