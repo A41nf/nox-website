@@ -136,10 +136,10 @@ export default function ScheduleClient({ schedule }: ScheduleClientProps) {
                             <p className="mt-1 text-xs uppercase tracking-[0.16em] text-nox-red">
                               {session.coach}
                             </p>
-                            <p className="mt-2 text-xs text-white/70">{session.location}</p>
+                            <p className="mt-2 text-xs text-white/75">{session.location}</p>
                           </div>
                         ) : (
-                          <div className="rounded-2xl border border-white/5 bg-black/20 p-3 text-xs text-white/65">
+                          <div className="rounded-2xl border border-white/5 bg-black/20 p-3 text-xs text-white/75">
                             {sc.noClass}
                           </div>
                         )}

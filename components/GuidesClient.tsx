@@ -30,7 +30,7 @@ export default function GuidesClient({ guides }: GuidesClientProps) {
     <section className={`mx-auto w-full max-w-7xl px-4 pt-10 md:px-8 ${isArabic ? "font-cairo" : ""}`}>
       <SectionHeader label={g.label} title={g.title} description={g.description} />
 
-      <div className="mt-8 rounded-2xl border border-dashed border-white/20 bg-black/35 p-5 text-sm text-white/70">
+      <div className="mt-8 rounded-2xl border border-dashed border-white/20 bg-black/35 p-5 text-sm text-white/75">
         {g.emailNote}
       </div>
 

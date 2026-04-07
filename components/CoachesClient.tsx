@@ -71,26 +71,30 @@ export default function CoachesClient({ coaches }: CoachesClientProps) {
       />
 
       <div className="mt-8 flex flex-wrap gap-2" role="toolbar" aria-label={c.filterLabel}>
-        {specialtyOptions.map((specialty) => (
-          <button
-            key={specialty}
-            type="button"
-            onClick={() => setFilter(specialty)}
-            className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
-              filter === specialty
-                ? "border-nox-red bg-nox-red text-white"
-                : "border-white/20 text-white/85 hover:border-nox-red/70"
-            }`}
-            aria-label={`${c.filterAriaLabel} ${specialty}`}
-            aria-pressed={filter === specialty}
-          >
-            {specialty === "All"
-              ? c.all
-              : isArabic
-                ? c.specialtyOptions[specialty as keyof typeof c.specialtyOptions] ?? specialty
-                : specialty}
-          </button>
-        ))}
+        {specialtyOptions.map((specialty) => {
+          const visibleLabel = specialty === "All"
+            ? c.all
+            : isArabic
+              ? c.specialtyOptions[specialty as keyof typeof c.specialtyOptions] ?? specialty
+              : specialty;
+
+          return (
+            <button
+              key={specialty}
+              type="button"
+              onClick={() => setFilter(specialty)}
+              className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
+                filter === specialty
+                  ? "border-nox-red bg-nox-red text-white"
+                  : "border-white/20 text-white/85 hover:border-nox-red/70"
+              }`}
+              aria-label={`${visibleLabel} ${c.filterAriaLabel}`}
+              aria-pressed={filter === specialty}
+            >
+              {visibleLabel}
+            </button>
+          );
+        })}
       </div>
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -148,7 +148,6 @@ export default function AboutClient({ siteSettings }: AboutClientProps) {
               target="_blank"
               rel="noopener noreferrer"
               variant="secondary"
-              ariaLabel={t.contact.whatsappAria}
             >
               {t.contact.whatsapp}
             </Button>

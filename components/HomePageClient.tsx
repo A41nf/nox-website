@@ -392,7 +392,7 @@ function ContactStrip({ siteSettings }: { siteSettings?: SiteSettings | null }) 
           <p className="text-xs uppercase tracking-[0.16em] text-nox-red">{h.hoursLabel}</p>
           <p className="mt-1 text-sm text-white/85">{hours}</p>
         </div>
-        <Button href={getWhatsAppUrl(whatsapp)} target="_blank" rel="noopener noreferrer" ariaLabel="Chat with NOX on WhatsApp" className="justify-center">
+        <Button href={getWhatsAppUrl(whatsapp)} target="_blank" rel="noopener noreferrer" className="justify-center">
           {h.whatsapp}
         </Button>
       </div>

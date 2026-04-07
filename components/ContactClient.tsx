@@ -51,7 +51,7 @@ export default function ContactClient() {
             />
           </div>
 
-          <Button className="mt-6 w-full" ariaLabel={c.submitAria}>
+          <Button className="mt-6 w-full">
             {c.send}
           </Button>
         </form>
@@ -79,7 +79,6 @@ export default function ContactClient() {
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 w-full"
-              ariaLabel={c.whatsappAria}
             >
               <MessageCircle size={16} aria-hidden />
               <span className="ml-2">{c.whatsapp}</span>

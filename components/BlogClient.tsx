@@ -66,11 +66,11 @@ export default function BlogClient({ posts }: BlogClientProps) {
                 <span className="rounded-full border border-nox-red/60 bg-nox-red/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-nox-red">
                   {b.categories[post.category as keyof typeof b.categories] ?? post.category}
                 </span>
-                <span className="text-xs uppercase tracking-[0.16em] text-white/70">
+                <span className="text-xs uppercase tracking-[0.16em] text-white/75">
                   {post.minutes} {b.readTime}
                 </span>
                 {post.date ? (
-                  <span className="text-xs uppercase tracking-[0.16em] text-white/70">{post.date}</span>
+                  <span className="text-xs uppercase tracking-[0.16em] text-white/75">{post.date}</span>
                 ) : null}
               </div>
               <h2 className="mt-5 text-2xl font-bold text-white">{post.title}</h2>
@@ -80,7 +80,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
         ))}
       </div>
 
-      <p className="mt-8 text-sm text-white/70">{b.comingSoon}</p>
+      <p className="mt-8 text-sm text-white/75">{b.comingSoon}</p>
     </section>
   );
 }
