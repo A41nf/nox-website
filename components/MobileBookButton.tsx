@@ -11,7 +11,7 @@ export default function MobileBookButton() {
   const alignmentClass = mounted && locale === "ar" ? "left-4" : "right-4";
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true); // eslint-disable-line react-hooks/set-state-in-effect
   }, []);
 
   return (

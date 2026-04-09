@@ -1546,7 +1546,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem("nox-locale");
-    if (stored === "ar") setLocale("ar");
+    if (stored === "ar") setLocale("ar"); // eslint-disable-line react-hooks/set-state-in-effect
   }, []);
 
   useEffect(() => {

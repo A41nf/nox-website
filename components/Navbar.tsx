@@ -26,7 +26,7 @@ export default function Navbar() {
   const useArabicStyles = mounted && isArabic;
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true); // eslint-disable-line react-hooks/set-state-in-effect
   }, []);
 
   const navItems = [
