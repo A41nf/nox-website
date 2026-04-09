@@ -13,6 +13,7 @@ import {
 import { NoxButton } from "@/src/components/ui/nox-button";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
+import { InstagramSection } from "@/src/components/home/instagram-slider";
 
 export function HomePage() {
   return (
@@ -23,6 +24,7 @@ export function HomePage() {
       <WhyNoxSection />
       <CoachesTeaser />
       <TestimonialsSection />
+      <InstagramSection />
       <CtaSection />
       <ContactTeaser />
     </div>
