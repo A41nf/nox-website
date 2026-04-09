@@ -1,4 +1,4 @@
-import imageUrlBuilder from '@sanity/image-url';
+import imageUrlBuilder, { type SanityImageSource } from '@sanity/image-url';
 import { createClient } from 'next-sanity';
 
 export const client = createClient({
@@ -10,6 +10,6 @@ export const client = createClient({
 
 const builder = imageUrlBuilder(client);
 
-export function urlFor(source: Record<string, unknown>) {
+export function urlFor(source: SanityImageSource) {
   return builder.image(source);
 }
