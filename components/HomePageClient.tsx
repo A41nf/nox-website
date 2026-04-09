@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import {
   Activity,
@@ -100,11 +101,13 @@ function HeroSection({ freshaUrl }: { freshaUrl: string }) {
 
   return (
     <section className="relative flex min-h-[calc(100vh-5rem)] items-center overflow-hidden px-4 md:px-8">
-      <img
+      <Image
         src="https://picsum.photos/seed/nox-gym-hero/1920/1080"
         alt=""
         aria-hidden
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20"
+        width={1200}
+        height={800}
       />
       <div className="pointer-events-none absolute inset-0 bg-nox-black/70" aria-hidden />
       <div className="pointer-events-none absolute inset-0 bg-grid-pattern opacity-20" aria-hidden />
@@ -287,10 +290,13 @@ function CoachesSection() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {h.coaches.map((coach: { name: string; specialties: readonly string[]; bio: string }, i: number) => (
             <article key={coach.name} className="overflow-hidden rounded-2xl border border-white/10 bg-nox-grey/60">
-              <img
+              <Image
                 src={`https://picsum.photos/seed/nox-coach-${i + 1}/600/400`}
                 alt={coach.name}
                 className="h-44 w-full object-cover"
+                width={400}
+                height={400}
+                unoptimized
               />
               <div className="p-6">
                 <h3 className="text-xl font-bold">{coach.name}</h3>

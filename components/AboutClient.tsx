@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { BadgeCheck, Flame, Shield, Trophy, Users } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -56,10 +57,12 @@ export default function AboutClient({ siteSettings }: AboutClientProps) {
     <div className={isArabic ? "font-cairo" : ""}>
       <section className="mx-auto w-full max-w-7xl px-4 pt-10 md:px-8">
         <div className="overflow-hidden rounded-3xl border border-white/10 bg-nox-grey/55">
-          <img
+          <Image
             src="https://picsum.photos/seed/nox-gym-interior/1400/500"
             alt="NOX gym interior"
             className="h-64 w-full object-cover opacity-70 md:h-80"
+            width={1200}
+            height={800}
           />
           <div className="p-8 md:p-12">
             <p className="text-xs uppercase tracking-[0.22em] text-nox-red">{a.label}</p>

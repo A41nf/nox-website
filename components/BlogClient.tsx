@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { useLocale } from "@/lib/i18n";
@@ -56,10 +57,13 @@ export default function BlogClient({ posts }: BlogClientProps) {
             href={post.href}
             className="overflow-hidden rounded-2xl border border-white/10 bg-nox-grey/60 transition-transform duration-300 hover:-translate-y-1"
           >
-            <img
+            <Image
               src={"thumbnail" in post && post.thumbnail ? urlFor(post.thumbnail).width(800).height(400).url() : `https://picsum.photos/seed/nox-blog-${i + 1}/800/400`}
               alt={post.title}
               className="h-48 w-full object-cover"
+              width={800}
+              height={450}
+              unoptimized
             />
             <div className="p-6">
               <div className="flex flex-wrap items-center gap-3">

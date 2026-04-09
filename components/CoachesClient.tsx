@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { useLocale } from "@/lib/i18n";
 import { urlFor } from "@/lib/sanity";
@@ -104,10 +105,13 @@ export default function CoachesClient({ coaches }: CoachesClientProps) {
             key={coach._id ?? `${coach.name}-${i}`}
             className="overflow-hidden rounded-2xl border border-white/10 bg-nox-grey/60"
           >
-            <img
+            <Image
               src={coach.photo?.asset?._ref ? urlFor(coach.photo).width(600).height(400).url() : `https://picsum.photos/seed/nox-coach-${i + 1}/600/400`}
               alt={isArabic ? coach.nameAr ?? coach.name : coach.name}
               className="h-52 w-full object-cover"
+              width={400}
+              height={400}
+              unoptimized
             />
             <div className="p-6">
               <h2 className="text-2xl font-bold">{isArabic ? coach.nameAr ?? coach.name : coach.name}</h2>

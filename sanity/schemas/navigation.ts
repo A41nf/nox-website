@@ -1,4 +1,4 @@
-export default {
+const navigation = {
   name: 'navigation',
   title: 'Navigation Menu',
   type: 'document',
@@ -19,3 +19,5 @@ export default {
     }
   ]
 }
+
+export default navigation;
