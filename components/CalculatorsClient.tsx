@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { useLocale } from "@/lib/i18n";
@@ -179,8 +179,8 @@ export default function CalculatorsClient() {
             <Input label={cal.bmi.height} value={bmiInputs.height} onChange={(value) => setBmiInputs((current) => ({ ...current, height: value }))} />
           </div>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Button onClick={calculateBmi} ariaLabel="Calculate BMI">{cal.bmi.calculate}</Button>
-            <Button variant="secondary" onClick={() => { setBmiInputs({ weight: "", height: "" }); setBmiResult(null); setBmiError(""); }} ariaLabel="Reset BMI">
+            <Button onClick={calculateBmi}>{cal.bmi.calculate}</Button>
+            <Button variant="secondary" onClick={() => { setBmiInputs({ weight: "", height: "" }); setBmiResult(null); setBmiError(""); }}>
               {cal.bmi.reset}
             </Button>
           </div>
@@ -198,8 +198,8 @@ export default function CalculatorsClient() {
             <Select label={cal.calories.activity} value={calorieInputs.activity} onChange={(value) => setCalorieInputs((current) => ({ ...current, activity: value as ActivityLevel }))} options={cal.calories.activityOptions} />
           </div>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Button onClick={calculateCalories} ariaLabel="Calculate calories">{cal.calories.calculate}</Button>
-            <Button variant="secondary" onClick={() => { setCalorieInputs({ weight: "", height: "", age: "", gender: "male", activity: "moderate" }); setCalorieResult(null); setCalorieError(""); }} ariaLabel="Reset calories">
+            <Button onClick={calculateCalories}>{cal.calories.calculate}</Button>
+            <Button variant="secondary" onClick={() => { setCalorieInputs({ weight: "", height: "", age: "", gender: "male", activity: "moderate" }); setCalorieResult(null); setCalorieError(""); }}>
               {cal.calories.reset}
             </Button>
           </div>
@@ -211,8 +211,8 @@ export default function CalculatorsClient() {
         <CalculatorCard title={cal.water.title} description={cal.water.description}>
           <Input label={cal.water.weight} value={waterWeight} onChange={setWaterWeight} />
           <div className="mt-5 flex flex-wrap gap-3">
-            <Button onClick={calculateWater} ariaLabel="Calculate water">{cal.water.calculate}</Button>
-            <Button variant="secondary" onClick={() => { setWaterWeight(""); setWaterResult(null); setWaterError(""); }} ariaLabel="Reset water">
+            <Button onClick={calculateWater}>{cal.water.calculate}</Button>
+            <Button variant="secondary" onClick={() => { setWaterWeight(""); setWaterResult(null); setWaterError(""); }}>
               {cal.water.reset}
             </Button>
           </div>
@@ -227,8 +227,8 @@ export default function CalculatorsClient() {
             <Select label={cal.macros.goal} value={macroInputs.goal} onChange={(value) => setMacroInputs((current) => ({ ...current, goal: value as MacroGoal }))} options={cal.macros.goalOptions} />
           </div>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Button onClick={calculateMacros} ariaLabel="Calculate macros">{cal.macros.calculate}</Button>
-            <Button variant="secondary" onClick={() => { setMacroInputs({ tdee: "", goal: "maintenance" }); setMacroResult(null); setMacroError(""); }} ariaLabel="Reset macros">
+            <Button onClick={calculateMacros}>{cal.macros.calculate}</Button>
+            <Button variant="secondary" onClick={() => { setMacroInputs({ tdee: "", goal: "maintenance" }); setMacroResult(null); setMacroError(""); }}>
               {cal.macros.reset}
             </Button>
           </div>
@@ -245,8 +245,8 @@ export default function CalculatorsClient() {
             <Select label={cal.frequency.level} value={frequencyInputs.level} onChange={(value) => setFrequencyInputs((current) => ({ ...current, level: value as FitnessLevel }))} options={cal.frequency.levelOptions} />
           </div>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Button onClick={calculateFrequency} ariaLabel="Calculate frequency">{cal.frequency.calculate}</Button>
-            <Button variant="secondary" onClick={() => { setFrequencyInputs({ goal: "general fitness", level: "beginner" }); setFrequencyResult(null); }} ariaLabel="Reset frequency">
+            <Button onClick={calculateFrequency}>{cal.frequency.calculate}</Button>
+            <Button variant="secondary" onClick={() => { setFrequencyInputs({ goal: "general fitness", level: "beginner" }); setFrequencyResult(null); }}>
               {cal.frequency.reset}
             </Button>
           </div>
@@ -286,10 +286,13 @@ function Input({
   value: string;
   onChange: (value: string) => void;
 }) {
+  const inputId = useId();
+
   return (
-    <label className="space-y-2 text-sm text-white/85">
-      <span>{label}</span>
+    <div className="space-y-2 text-sm text-white/85">
+      <label htmlFor={inputId}>{label}</label>
       <input
+        id={inputId}
         type="number"
         min="0"
         inputMode="decimal"
@@ -297,7 +300,7 @@ function Input({
         onChange={(event) => onChange(event.target.value)}
         className="h-11 w-full rounded-xl border border-white/15 bg-black/45 px-3 text-white outline-none transition-colors focus:border-nox-red"
       />
-    </label>
+    </div>
   );
 }
 
@@ -312,10 +315,13 @@ function Select({
   onChange: (value: string) => void;
   options: ReadonlyArray<{ value: string; label: string }>;
 }) {
+  const selectId = useId();
+
   return (
-    <label className="space-y-2 text-sm text-white/85">
-      <span>{label}</span>
+    <div className="space-y-2 text-sm text-white/85">
+      <label htmlFor={selectId}>{label}</label>
       <select
+        id={selectId}
         value={value}
         onChange={(event) => onChange(event.target.value)}
         className="h-11 w-full rounded-xl border border-white/15 bg-black/45 px-3 text-white outline-none transition-colors focus:border-nox-red"
@@ -326,7 +332,7 @@ function Select({
           </option>
         ))}
       </select>
-    </label>
+    </div>
   );
 }
 

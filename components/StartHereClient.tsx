@@ -39,7 +39,7 @@ export default function StartHereClient() {
           <p className="text-xs uppercase tracking-[0.18em] text-nox-red">{s.ctaLabel}</p>
           <h3 className="mt-4 text-3xl font-black uppercase text-white">{s.ctaTitle}</h3>
           <p className="mt-4 text-sm leading-relaxed text-white/75">{s.ctaDescription}</p>
-          <Button href="/contact" className="mt-6" ariaLabel="Contact NOX">
+          <Button href="/contact" className="mt-6">
             {s.bookNow}
           </Button>
         </div>

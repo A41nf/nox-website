@@ -165,7 +165,7 @@ function InstagramSlider() {
         className="absolute left-3 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#0D0D0D]/90 text-white transition hover:border-[#E80028] hover:text-[#E80028] disabled:cursor-not-allowed disabled:opacity-35 sm:inline-flex"
         aria-label="Previous Instagram posts"
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={20} aria-hidden />
       </button>
 
       <button
@@ -175,7 +175,7 @@ function InstagramSlider() {
         className="absolute right-3 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-[#0D0D0D]/90 text-white transition hover:border-[#E80028] hover:text-[#E80028] disabled:cursor-not-allowed disabled:opacity-35 sm:inline-flex"
         aria-label="Next Instagram posts"
       >
-        <ChevronRight size={20} />
+        <ChevronRight size={20} aria-hidden />
       </button>
 
       <div
@@ -224,7 +224,7 @@ function InstagramSlider() {
               <div className="p-5 text-right">
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-xs font-bold tracking-[0.28em] text-[#E80028]">INSTAGRAM</span>
-                  <ExternalLink size={16} className="text-white/45 transition group-hover:text-white" />
+                  <ExternalLink size={16} className="text-white/45 transition group-hover:text-white" aria-hidden />
                 </div>
                 <p className="mt-4 min-h-[3.5rem] text-sm leading-7 text-white/80">{truncateCaption(post.caption)}</p>
               </div>
@@ -238,7 +238,7 @@ function InstagramSlider() {
 
 export function InstagramSection() {
   return (
-    <section className="bg-white/[0.03] py-24">
+    <section className="bg-white/[0.03] py-24" aria-label="آخر اللقطات من NOX على إنستغرام">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <Reveal>
           <SectionHeading

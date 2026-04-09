@@ -74,7 +74,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-colors hover:border-nox-red hover:text-nox-red"
               >
-                <Icon size={18} />
+                <Icon size={18} aria-hidden />
               </a>
             ))}
           </div>

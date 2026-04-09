@@ -71,7 +71,7 @@ export function Navbar() {
           onClick={() => setOpen((value) => !value)}
           aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}
         >
-          {open ? <X size={18} /> : <Menu size={18} />}
+          {open ? <X size={18} aria-hidden /> : <Menu size={18} aria-hidden />}
         </button>
       </nav>
 
