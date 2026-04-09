@@ -6,7 +6,7 @@ import { SectionHeading } from "@/src/components/ui/section-heading";
 
 export function ServicesPage() {
   return (
-    <main className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
           eyebrow="الخدمات"
@@ -66,6 +66,6 @@ export function ServicesPage() {
           );
         })}
       </div>
-    </main>
+    </div>
   );
 }

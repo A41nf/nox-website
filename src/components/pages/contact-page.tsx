@@ -7,7 +7,7 @@ import { SectionHeading } from "@/src/components/ui/section-heading";
 
 export function ContactPage() {
   return (
-    <main className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
           eyebrow="تواصل معنا"
@@ -72,6 +72,6 @@ export function ContactPage() {
           );
         })}
       </div>
-    </main>
+    </div>
   );
 }

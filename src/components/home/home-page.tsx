@@ -16,7 +16,7 @@ import { SectionHeading } from "@/src/components/ui/section-heading";
 
 export function HomePage() {
   return (
-    <main className="overflow-hidden">
+    <div className="overflow-hidden">
       <HeroSection />
       <AboutTeaser />
       <ServicesTeaser />
@@ -25,7 +25,7 @@ export function HomePage() {
       <TestimonialsSection />
       <CtaSection />
       <ContactTeaser />
-    </main>
+    </div>
   );
 }
 

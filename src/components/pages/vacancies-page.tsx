@@ -56,7 +56,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
   };
 
   return (
-    <main dir="rtl" className="pb-16 md:pb-24">
+    <div dir="rtl" className="pb-16 md:pb-24">
       <section className="border-b border-white/10 bg-[linear-gradient(135deg,rgba(232,0,40,0.18),rgba(13,13,13,0.98),rgba(13,13,13,1))]">
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
           <Reveal>
@@ -217,6 +217,6 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
           </div>
         </Reveal>
       </section>
-    </main>
+    </div>
   );
 }
