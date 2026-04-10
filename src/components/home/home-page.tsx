@@ -126,8 +126,8 @@ function ServicesTeaser() {
               <Reveal key={service.id} delay={index * 0.08}>
                 <article className="h-full rounded-[2rem] border border-white/10 bg-black/55 p-7">
                   <div className="flex items-start justify-between gap-4">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E80028]/15 text-[#E80028]">
-                      <Icon size={22} />
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E80028] text-white">
+                      <Icon size={22} aria-hidden="true" />
                     </div>
                     <span className="text-sm text-white/80">{service.duration}</span>
                   </div>
@@ -167,8 +167,8 @@ function WhyNoxSection() {
           return (
             <Reveal key={item.title} delay={index * 0.08}>
               <article className="grid gap-5 rounded-[1.7rem] border border-white/10 bg-white/[0.04] p-6 sm:grid-cols-[auto_1fr] sm:items-start">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-[#E80028]/35 bg-[#E80028]/10 text-[#E80028]">
-                  <Icon size={22} />
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E80028] text-white">
+                  <Icon size={22} aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-xl font-black text-white">{item.title}</h3>

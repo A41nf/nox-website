@@ -54,8 +54,8 @@ export function ServicesPage({ services }: { services?: Service[] | null }) {
                 className="grid gap-8 rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 lg:grid-cols-[0.9fr_1.1fr]"
               >
                 <div>
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E80028]/15 text-[#E80028]">
-                    <Icon size={24} />
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E80028] text-white">
+                    <Icon size={24} aria-hidden="true" />
                   </div>
                   <h2 className="mt-6 text-3xl font-black text-white">{service.title}</h2>
                   <p className="mt-3 inline-block rounded bg-white px-2 py-0.5 text-base text-[#E80028]">{service.subtitle}</p>

@@ -153,7 +153,7 @@ export default function Navbar() {
             className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 px-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/80 transition-colors hover:border-nox-red hover:text-white"
             aria-label="EN | AR toggle language"
           >
-            EN <span className="text-white/40">|</span>{" "}
+            EN <span className="text-white/40" aria-hidden="true">|</span>{" "}
             <span className="arabic font-cairo">AR</span>
           </button>
 

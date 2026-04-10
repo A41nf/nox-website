@@ -66,8 +66,8 @@ export function ContactPage() {
           return (
             <Reveal key={item.title} delay={index * 0.08}>
               <article className="rounded-[1.8rem] border border-white/10 bg-black/50 p-7">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E80028]/15 text-[#E80028]">
-                  <Icon size={20} />
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E80028] text-white">
+                  <Icon size={20} aria-hidden="true" />
                 </div>
                 <h3 className="mt-5 text-2xl font-black text-white">{item.title}</h3>
                 <p className="mt-4 text-base leading-8 text-white/80">{item.description}</p>

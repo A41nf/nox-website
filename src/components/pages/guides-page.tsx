@@ -132,7 +132,7 @@ export function GuidesPage({ guides }: { guides?: Guide[] | null }) {
               <p className="mt-3 flex-1 text-sm leading-7 text-white/65">{guide.description}</p>
 
               <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4">
-                <span className="text-xs text-white/40">{guide.readTime} قراءة</span>
+                <span className="text-xs text-white/70">{guide.readTime} قراءة</span>
                 <ChevronLeft
                   size={16}
                   className="text-[#E80028]/60 transition group-hover:translate-x-[-4px]"

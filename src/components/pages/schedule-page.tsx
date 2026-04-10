@@ -24,7 +24,7 @@ const slotColors: Record<ScheduleSlot["type"], string> = {
   personal: "bg-white border-[#E80028]/30 text-[#E80028]",
   group: "bg-white/10 border-white/20 text-white",
   ems: "bg-white border-[#E80028]/20 text-[#E80028]/80",
-  off: "bg-white/[0.03] border-white/10 text-white/40",
+  off: "bg-white/[0.03] border-white/10 text-white/60",
 };
 
 export function SchedulePage({ schedule }: { schedule?: ScheduleClass[] | null }) {
@@ -110,7 +110,7 @@ export function SchedulePage({ schedule }: { schedule?: ScheduleClass[] | null }
                 <Calendar size={16} className="text-[#E80028]/70" aria-hidden="true" />
                 <div>
                   <p className="text-sm font-black text-white">{day.day}</p>
-                  <p className="text-xs text-white/40">{day.dayEn}</p>
+                  <p className="text-xs text-white/70">{day.dayEn}</p>
                 </div>
               </div>
               <div className="space-y-2">
@@ -136,7 +136,7 @@ export function SchedulePage({ schedule }: { schedule?: ScheduleClass[] | null }
 
       {/* Note */}
       <Reveal delay={0.15}>
-        <p className="mt-8 text-center text-sm text-white/50">
+        <p className="mt-8 text-center text-sm text-white/70">
           * {page.description}
         </p>
       </Reveal>
