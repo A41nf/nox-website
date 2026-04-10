@@ -43,7 +43,7 @@ function HeroSection() {
             <p className="inline-block rounded bg-white px-2 py-0.5 text-xs font-bold tracking-[0.4em] text-[#E80028]">NO EXCUSE PERSONAL TRAINING</p>
             <h1 className="mt-6 text-5xl font-black leading-[1.05] text-white md:text-7xl lg:text-[5.8rem]">
               تدريب خاص
-              <span className="block text-[#E80028]">بشدة نخبوية</span>
+              <span className="block bg-[#E80028] text-white">بشدة نخبوية</span>
               <span className="block text-white/82">ولغة عربية أولاً</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-9 text-white/80 md:text-xl">
