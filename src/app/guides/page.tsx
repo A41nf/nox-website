@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { getGuides } from "@/lib/queries";
+import type { Guide } from "@/lib/types";
 import { GuidesPage } from "@/src/components/pages/guides-page";
 
 export const metadata: Metadata = {
@@ -8,6 +10,14 @@ export const metadata: Metadata = {
     "دلائل ومقالات عملية من فريق NOX مسقط حول التدريب الشخصي، التغذية، التعافي، وتكوين الجسم في سلطنة عُمان.",
 };
 
-export default function Page() {
-  return <GuidesPage />;
+export default async function Page() {
+  let guides: Guide[] = [];
+
+  try {
+    guides = await getGuides();
+  } catch {
+    guides = [];
+  }
+
+  return <GuidesPage guides={guides} />;
 }

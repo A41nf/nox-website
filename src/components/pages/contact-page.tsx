@@ -1,18 +1,22 @@
 "use client";
 
 import { contactDetails, contactHighlights } from "@/src/data/site-content";
+import { useLocale } from "@/lib/i18n";
 import { NoxButton } from "@/src/components/ui/nox-button";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
 
 export function ContactPage() {
+  const { t, isArabic } = useLocale();
+  const page = t.contact;
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <div dir={isArabic ? "rtl" : "ltr"} className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
-          eyebrow="تواصل معنا"
-          title="الخطوة الأولى تبدأ برسالة واضحة"
-          description="شاركنا هدفك الحالي، وقتك المتاح، ونوع التدريب الذي تبحث عنه. سنقترح المسار المناسب ونرتب الموعد الأول."
+          eyebrow={page.label}
+          title={page.title}
+          description={page.description}
           as="h1"
         />
       </Reveal>
@@ -20,27 +24,27 @@ export function ContactPage() {
       <div className="mt-14 grid gap-6 lg:grid-cols-[1fr_0.9fr]">
         <Reveal>
           <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
-            <h2 className="text-2xl font-black text-white">بيانات التواصل</h2>
+            <h2 className="text-2xl font-black text-white">{page.studioInfo}</h2>
             <div className="mt-6 space-y-5 text-base leading-8 text-white/80">
               <p>
-                <span className="text-white">العنوان:</span> {contactDetails.address}
+                <span className="text-white">{page.address}:</span> {page.addressValue}
               </p>
               <p>
-                <span className="text-white">الهاتف:</span> {contactDetails.phone}
+                <span className="text-white">{page.phone}:</span> {contactDetails.phone}
               </p>
               <p>
-                <span className="text-white">البريد:</span> {contactDetails.email}
+                <span className="text-white">{page.email}:</span> {contactDetails.email}
               </p>
               <p>
-                <span className="text-white">الأوقات:</span> {contactDetails.hours}
+                <span className="text-white">{page.hours}:</span> {page.hoursValue}
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
               <NoxButton href={contactDetails.whatsapp} target="_blank" rel="noreferrer">
-                واتساب
+                {page.whatsapp}
               </NoxButton>
               <NoxButton href={`mailto:${contactDetails.email}`} variant="secondary">
-                بريد إلكتروني
+                {page.email}
               </NoxButton>
             </div>
           </section>

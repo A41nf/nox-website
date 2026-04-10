@@ -14,6 +14,7 @@ import { NoxButton } from "@/src/components/ui/nox-button";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
 import { InstagramSection } from "@/src/components/home/instagram-slider";
+import { FRESHA_URL } from "@/lib/i18n";
 
 export function HomePage() {
   return (
@@ -49,7 +50,7 @@ function HeroSection() {
               NOX يقدم تجربة تدريب شخصية بوتيك في مسقط: تركيز كامل، برامج واضحة، بيئة سوداء حادة، ونتائج لا تعتمد على الحماس المؤقت.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <NoxButton href="/contact">ابدأ رحلتك</NoxButton>
+              <NoxButton href={FRESHA_URL} target="_blank" rel="noopener noreferrer">ابدأ رحلتك</NoxButton>
               <NoxButton href="/services" variant="secondary">
                 استكشف الخدمات
               </NoxButton>
@@ -262,7 +263,7 @@ function CtaSection() {
             ابدأ باستشارة تعريفية، شاركنا الهدف الحالي، وسنقترح المسار الأنسب حسب وقتك ومستوى التزامك.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <NoxButton href="/contact">احجز استشارة</NoxButton>
+            <NoxButton href={FRESHA_URL} target="_blank" rel="noopener noreferrer">احجز استشارة</NoxButton>
             <NoxButton href={contactDetails.whatsapp} target="_blank" rel="noreferrer" variant="secondary">
               واتساب مباشر
             </NoxButton>

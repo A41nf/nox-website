@@ -1,17 +1,21 @@
+"use client";
+
 import { BookOpen, ChevronLeft } from "lucide-react";
 
+import type { Guide } from "@/lib/types";
+import { useLocale } from "@/lib/i18n";
 import { NoxButton } from "@/src/components/ui/nox-button";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
 
-type Guide = {
+type GuideCard = {
   title: string;
   description: string;
   category: string;
   readTime: string;
 };
 
-const guides: Guide[] = [
+const guidesData: GuideCard[] = [
   {
     title: "كيف تبدأ رحلتك في التدريب الشخصي",
     description:
@@ -81,7 +85,24 @@ const categoryColors: Record<string, string> = {
   "الخدمات": "bg-white/10 text-white/80",
 };
 
-export function GuidesPage() {
+export function GuidesPage({ guides }: { guides?: Guide[] | null }) {
+  const { isArabic } = useLocale();
+  const sanityGuides = guides ?? [];
+  const hasSanityGuides = sanityGuides.length > 0;
+  const renderedGuides = hasSanityGuides
+    ? guidesData.map((guide, index) => {
+        const item = sanityGuides[index];
+
+        return {
+          ...guide,
+          title: isArabic ? item?.titleAr ?? item?.title ?? guide.title : item?.title ?? guide.title,
+          description:
+            isArabic ? item?.descriptionAr ?? item?.description ?? guide.description : item?.description ?? guide.description,
+          category: isArabic ? item?.categoryAr ?? item?.category ?? guide.category : item?.category ?? guide.category,
+        };
+      })
+    : guidesData;
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
@@ -95,7 +116,7 @@ export function GuidesPage() {
 
       {/* Guides grid */}
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {guides.map((guide, index) => (
+        {renderedGuides.map((guide, index) => (
           <Reveal key={guide.title} delay={index * 0.06}>
             <article className="group flex h-full flex-col rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 transition hover:border-[#E80028]/30 hover:bg-[#E80028]/5">
               <div className="mb-4 flex items-start justify-between gap-3">

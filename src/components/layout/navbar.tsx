@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { navItems } from "@/src/data/site-content";
 import { NoxButton } from "@/src/components/ui/nox-button";
+import { FRESHA_URL, useLocale } from "@/lib/i18n";
 
 export function Navbar() {
   /*
@@ -21,6 +22,8 @@ export function Navbar() {
    *   : [...navItems, { label: careersNavItem.label.ar, href: careersNavItem.href }];
    */
   const pathname = usePathname();
+  const { toggleLocale, locale, isArabic } = useLocale();
+  const langAriaLabel = isArabic ? "Switch to English" : "التبديل إلى العربية";
   const [open, setOpen] = useState(false);
   const primaryNavItems = navItems;
 
@@ -58,10 +61,15 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80">
-              AR / EN / FR / HI
-            </span>
-            <NoxButton href="/contact">احجز استشارة</NoxButton>
+            <button
+              type="button"
+              onClick={toggleLocale}
+              aria-label={langAriaLabel}
+              className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80"
+            >
+              {locale.toUpperCase()}
+            </button>
+            <NoxButton href={FRESHA_URL} target="_blank" rel="noopener noreferrer">احجز استشارة</NoxButton>
           </div>
         </div>
 
@@ -95,7 +103,15 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              <NoxButton href="/contact" className="mt-2 w-full">
+              <button
+                type="button"
+                onClick={toggleLocale}
+                aria-label={langAriaLabel}
+                className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/80"
+              >
+                {locale.toUpperCase()}
+              </button>
+              <NoxButton href={FRESHA_URL} target="_blank" rel="noopener noreferrer" className="mt-2 w-full">
                 ابدأ الآن
               </NoxButton>
             </div>

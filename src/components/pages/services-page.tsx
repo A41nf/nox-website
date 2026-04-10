@@ -1,23 +1,51 @@
 "use client";
 
-import { services } from "@/src/data/site-content";
+import type { Service } from "@/lib/types";
+import { useLocale } from "@/lib/i18n";
+import { services as fallbackServices } from "@/src/data/site-content";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
 
-export function ServicesPage() {
+export function ServicesPage({ services }: { services?: Service[] | null }) {
+  const { t, isArabic } = useLocale();
+  const page = t.services;
+  const sanityServices = services ?? [];
+  const hasSanityServices = sanityServices.length > 0;
+  const localizedServices = hasSanityServices
+    ? fallbackServices.map((service, index) => {
+        const item = sanityServices[index];
+
+        return {
+          ...service,
+          title: isArabic ? item?.titleAr ?? item?.title ?? service.title : item?.title ?? service.title,
+          description:
+            isArabic ? item?.descriptionAr ?? item?.description ?? service.description : item?.description ?? service.description,
+          bullets:
+            isArabic ? item?.benefitsAr ?? item?.benefits ?? service.bullets : item?.benefits ?? service.bullets,
+          price: isArabic ? item?.priceAr ?? item?.price ?? service.price : item?.price ?? service.price,
+        };
+      })
+    : fallbackServices.map((service, index) => ({
+        ...service,
+        title: page.services[index]?.title ?? service.title,
+        description: page.services[index]?.description ?? service.description,
+        bullets: page.services[index]?.benefits ?? service.bullets,
+        price: page.services[index]?.price ?? service.price,
+      }));
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <div dir={isArabic ? "rtl" : "ltr"} className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
-          eyebrow="الخدمات"
-          title="خدمات متعددة. معيار واحد: نتائج فعلية"
-          description="صممنا باقات NOX لتناسب أنماط حياة مختلفة، لكن من دون التنازل عن الجودة أو المتابعة أو هوية العلامة."
+          eyebrow={page.label}
+          title={page.title}
+          description={page.description}
           as="h1"
         />
       </Reveal>
 
       <div className="mt-14 space-y-6">
-        {services.map((service, index) => {
+        {localizedServices.map((service, index) => {
           const Icon = service.icon;
           return (
             <Reveal key={service.id} delay={index * 0.06}>

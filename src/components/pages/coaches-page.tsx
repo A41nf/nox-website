@@ -1,23 +1,50 @@
 "use client";
 
-import { coaches } from "@/src/data/site-content";
+import type { Coach } from "@/lib/types";
+import { useLocale } from "@/lib/i18n";
+import { coaches as fallbackCoaches } from "@/src/data/site-content";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
 
-export function CoachesPage() {
+export function CoachesPage({ coaches }: { coaches?: Coach[] | null }) {
+  const { t, isArabic } = useLocale();
+  const page = t.coaches;
+  const sanityCoaches = coaches ?? [];
+  const hasSanityCoaches = sanityCoaches.length > 0;
+  const localizedCoaches = hasSanityCoaches
+    ? fallbackCoaches.map((coach, index) => {
+        const item = sanityCoaches[index];
+
+        return {
+          ...coach,
+          name: isArabic ? item?.nameAr ?? item?.name ?? coach.name : item?.name ?? coach.name,
+          bio: isArabic ? item?.bioAr ?? item?.bio ?? coach.bio : item?.bio ?? coach.bio,
+          specialties:
+            isArabic
+              ? item?.specialtiesAr ?? item?.specialties ?? coach.specialties
+              : item?.specialties ?? coach.specialties,
+        };
+      })
+    : fallbackCoaches.map((coach, index) => ({
+        ...coach,
+        name: page.coaches[index]?.name ?? coach.name,
+        bio: page.coaches[index]?.bio ?? coach.bio,
+        specialties: page.coaches[index]?.specialties ?? coach.specialties,
+      }));
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <div dir={isArabic ? "rtl" : "ltr"} className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
-          eyebrow="الفريق"
-          title="مدربون بخلفيات مختلفة لكن بعقلية واحدة"
-          description="كل مدرب في NOX مسؤول عن الجودة، الدقة، واللغة المباشرة مع العميل. لا وعود زائفة ولا خطط عامة."
+          eyebrow={page.label}
+          title={page.title}
+          description={page.description}
           as="h1"
         />
       </Reveal>
 
       <div className="mt-14 grid gap-6 lg:grid-cols-3">
-        {coaches.map((coach, index) => (
+        {localizedCoaches.map((coach, index) => (
           <Reveal key={coach.name} delay={index * 0.08}>
             <article className="h-full rounded-[2rem] border border-white/10 bg-white/[0.04] p-7">
               <div className="h-56 rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(232,0,40,0.3),rgba(255,255,255,0.05),rgba(13,13,13,1))]" />
@@ -27,7 +54,7 @@ export function CoachesPage() {
               <div className="mt-5 flex flex-wrap gap-2">
                 {coach.specialties.map((specialty) => (
                   <span key={specialty} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/80">
-                    {specialty}
+                    {page.specialtyOptions[specialty as keyof typeof page.specialtyOptions] ?? specialty}
                   </span>
                 ))}
               </div>

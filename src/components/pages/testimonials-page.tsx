@@ -2,19 +2,49 @@
 
 import { Quote } from "lucide-react";
 
-import { testimonials } from "@/src/data/site-content";
+import type { Testimonial } from "@/lib/types";
+import { FRESHA_URL, useLocale } from "@/lib/i18n";
+import { testimonials as fallbackTestimonials } from "@/src/data/site-content";
 import { NoxButton } from "@/src/components/ui/nox-button";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
 
-export function TestimonialsPage() {
+export function TestimonialsPage({ testimonials }: { testimonials?: Testimonial[] | null }) {
+  const { t, isArabic } = useLocale();
+  const page = t.testimonials;
+  const sanityTestimonials = testimonials ?? [];
+  const hasSanityTestimonials = sanityTestimonials.length > 0;
+  const localizedTestimonials = hasSanityTestimonials
+    ? fallbackTestimonials.map((item, index) => {
+        const testimonial = sanityTestimonials[index];
+
+        return {
+          ...item,
+          name: testimonial?.name ?? item.name,
+          result:
+            isArabic
+              ? testimonial?.resultAr ?? testimonial?.result ?? item.result
+              : testimonial?.result ?? item.result,
+          quote:
+            isArabic
+              ? testimonial?.quoteAr ?? testimonial?.quote ?? item.quote
+              : testimonial?.quote ?? item.quote,
+        };
+      })
+    : fallbackTestimonials.map((item, index) => ({
+        ...item,
+        name: page.testimonials[index]?.name ?? item.name,
+        result: page.testimonials[index]?.result ?? item.result,
+        quote: page.testimonials[index]?.quote ?? item.quote,
+      }));
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <div dir={isArabic ? "rtl" : "ltr"} className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
-          eyebrow="قصص نجاح"
-          title="ماذا قال عملاؤنا"
-          description="نتائج حقيقية، أشخاص حقيقيون. هذه بعض القصص من عملاء NOX الذين غيّروا مساراتهم عبر التدريب الجاد والمتابعة المستمرة."
+          eyebrow={page.label}
+          title={page.title}
+          description={page.description}
           as="h1"
         />
       </Reveal>
@@ -22,18 +52,13 @@ export function TestimonialsPage() {
       {/* Featured stats */}
       <Reveal delay={0.1}>
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {[
-            { value: "+200", label: "عميل تحوّل بنجاح" },
-            { value: "91%", label: "نسبة الالتزام بالبرنامج" },
-            { value: "4.9★", label: "تقييم التجربة" },
-            { value: "45", label: "دقيقة تركيز مكثف" },
-          ].map((stat) => (
+          {page.stats.map((stat, index) => (
             <div
-              key={stat.label}
+              key={stat}
               className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center"
             >
-              <p className="text-3xl font-black text-[#E80028]">{stat.value}</p>
-              <p className="mt-1 text-sm text-white/60">{stat.label}</p>
+              <p className="text-3xl font-black text-[#E80028]">{["+200", "91%", "4.9★"][index] ?? ""}</p>
+              <p className="mt-1 text-sm text-white/60">{stat}</p>
             </div>
           ))}
         </div>
@@ -41,7 +66,7 @@ export function TestimonialsPage() {
 
       {/* Testimonials grid */}
       <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {testimonials.map((item, index) => (
+        {localizedTestimonials.map((item, index) => (
           <Reveal key={item.name} delay={index * 0.08}>
             <article className="flex h-full flex-col rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 transition hover:border-[#E80028]/30 hover:bg-[#E80028]/5">
               <Quote
@@ -73,9 +98,9 @@ export function TestimonialsPage() {
             ابدأ رحلتك مع NOX اليوم واحصل على تقييم أولي مجاني مع أحد مدربينا.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <NoxButton href="/contact">احجز تقييمك الآن</NoxButton>
+            <NoxButton href={FRESHA_URL} target="_blank" rel="noopener noreferrer">احجز تقييمك الآن</NoxButton>
             <NoxButton href="/services" variant="secondary">
-              استعرض الخدمات
+              {t.services.label}
             </NoxButton>
           </div>
         </div>

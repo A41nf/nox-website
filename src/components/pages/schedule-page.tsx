@@ -1,5 +1,9 @@
+"use client";
+
 import { Calendar, Clock } from "lucide-react";
 
+import type { ScheduleClass } from "@/lib/types";
+import { FRESHA_URL, useLocale } from "@/lib/i18n";
 import { NoxButton } from "@/src/components/ui/nox-button";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
@@ -16,74 +20,6 @@ type DaySchedule = {
   slots: ScheduleSlot[];
 };
 
-const weeklySchedule: DaySchedule[] = [
-  {
-    day: "السبت",
-    dayEn: "Sat",
-    slots: [
-      { time: "06:00 – 08:00", label: "تدريب شخصي", type: "personal" },
-      { time: "09:00 – 10:00", label: "مجموعات صغيرة", type: "group" },
-      { time: "17:00 – 19:00", label: "تدريب شخصي", type: "personal" },
-      { time: "19:30 – 20:30", label: "EMS", type: "ems" },
-    ],
-  },
-  {
-    day: "الأحد",
-    dayEn: "Sun",
-    slots: [
-      { time: "06:00 – 08:00", label: "تدريب شخصي", type: "personal" },
-      { time: "10:00 – 11:00", label: "EMS", type: "ems" },
-      { time: "17:00 – 19:00", label: "تدريب شخصي", type: "personal" },
-      { time: "19:30 – 20:30", label: "مجموعات صغيرة", type: "group" },
-    ],
-  },
-  {
-    day: "الاثنين",
-    dayEn: "Mon",
-    slots: [
-      { time: "06:00 – 08:00", label: "تدريب شخصي", type: "personal" },
-      { time: "09:00 – 10:00", label: "مجموعات صغيرة", type: "group" },
-      { time: "17:00 – 19:00", label: "تدريب شخصي", type: "personal" },
-      { time: "20:00 – 21:00", label: "EMS", type: "ems" },
-    ],
-  },
-  {
-    day: "الثلاثاء",
-    dayEn: "Tue",
-    slots: [
-      { time: "06:00 – 08:00", label: "تدريب شخصي", type: "personal" },
-      { time: "10:00 – 11:00", label: "EMS", type: "ems" },
-      { time: "17:00 – 19:00", label: "تدريب شخصي", type: "personal" },
-      { time: "19:30 – 20:30", label: "مجموعات صغيرة", type: "group" },
-    ],
-  },
-  {
-    day: "الأربعاء",
-    dayEn: "Wed",
-    slots: [
-      { time: "06:00 – 08:00", label: "تدريب شخصي", type: "personal" },
-      { time: "09:00 – 10:00", label: "مجموعات صغيرة", type: "group" },
-      { time: "17:00 – 19:00", label: "تدريب شخصي", type: "personal" },
-      { time: "20:00 – 21:00", label: "EMS", type: "ems" },
-    ],
-  },
-  {
-    day: "الخميس",
-    dayEn: "Thu",
-    slots: [
-      { time: "06:00 – 08:00", label: "تدريب شخصي", type: "personal" },
-      { time: "10:00 – 11:00", label: "EMS", type: "ems" },
-      { time: "17:00 – 19:00", label: "تدريب شخصي", type: "personal" },
-      { time: "19:30 – 20:30", label: "مجموعات صغيرة", type: "group" },
-    ],
-  },
-  {
-    day: "الجمعة",
-    dayEn: "Fri",
-    slots: [{ time: "–", label: "يوم راحة", type: "off" }],
-  },
-];
-
 const slotColors: Record<ScheduleSlot["type"], string> = {
   personal: "bg-[#E80028]/15 border-[#E80028]/30 text-[#E80028]",
   group: "bg-white/10 border-white/20 text-white",
@@ -91,20 +27,62 @@ const slotColors: Record<ScheduleSlot["type"], string> = {
   off: "bg-white/[0.03] border-white/10 text-white/40",
 };
 
-const legend = [
-  { label: "تدريب شخصي", type: "personal" as const },
-  { label: "مجموعات صغيرة", type: "group" as const },
-  { label: "EMS", type: "ems" as const },
-];
+export function SchedulePage({ schedule }: { schedule?: ScheduleClass[] | null }) {
+  const { t, isArabic } = useLocale();
+  const page = t.schedule;
+  const sanitySchedule = schedule ?? [];
+  const hasSanitySchedule = sanitySchedule.length > 0;
+  const dayOrder = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"] as const;
+  const dayAbbreviations: Record<string, string> = {
+    Saturday: "Sat",
+    Sunday: "Sun",
+    Monday: "Mon",
+    Tuesday: "Tue",
+    Wednesday: "Wed",
+    Thursday: "Thu",
+  };
+  const classTypeMap: Record<string, ScheduleSlot["type"]> = {
+    Strength: "personal",
+    HIIT: "group",
+    Mobility: "group",
+    "EMS Circuit": "ems",
+    "Boxing Conditioning": "group",
+  };
+  const legend = [
+    { label: page.classTypes.Strength, type: "personal" as const },
+    { label: page.classTypes.HIIT, type: "group" as const },
+    { label: page.classTypes["EMS Circuit"], type: "ems" as const },
+  ];
+  const sessions = hasSanitySchedule
+    ? sanitySchedule.map((session) => ({
+        ...session,
+        label: isArabic ? session.classTypeAr ?? session.classType : session.classType,
+      }))
+    : page.sessions.map((session) => ({
+        ...session,
+        label: page.classTypes[session.classType as keyof typeof page.classTypes] ?? session.classType,
+      }));
+  const weeklySchedule: DaySchedule[] = dayOrder.map((dayKey) => ({
+    day: page.days[dayKey],
+    dayEn: dayAbbreviations[dayKey],
+    slots: sessions
+      .filter((session) => session.day === dayKey)
+      .map((session) => {
+        return {
+          time: session.time,
+          label: session.label,
+          type: classTypeMap[session.classType] ?? "group",
+        };
+      }),
+  }));
 
-export function SchedulePage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <div dir={isArabic ? "rtl" : "ltr"} className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
-          eyebrow="الجدول الأسبوعي"
-          title="مواعيد التدريب"
-          description="الجدول التقريبي للجلسات خلال الأسبوع. لتأكيد موعدك أو حجز مكانك في المجموعة، تواصل معنا مباشرة."
+          eyebrow={page.label}
+          title={page.title}
+          description={page.description}
           as="h1"
         />
       </Reveal>
@@ -159,7 +137,7 @@ export function SchedulePage() {
       {/* Note */}
       <Reveal delay={0.15}>
         <p className="mt-8 text-center text-sm text-white/50">
-          * الأوقات تقريبية وقابلة للتغيير. تواصل معنا لتأكيد الجدول الحالي.
+          * {page.description}
         </p>
       </Reveal>
 
@@ -173,9 +151,9 @@ export function SchedulePage() {
             اختر الوقت المناسب لك ودعنا نرتب جلستك الأولى مع أحد مدربي NOX.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <NoxButton href="/contact">تواصل معنا</NoxButton>
+            <NoxButton href={FRESHA_URL} target="_blank" rel="noopener noreferrer">{t.contact.label}</NoxButton>
             <NoxButton href="/services" variant="secondary">
-              استعرض الخدمات
+              {t.services.label}
             </NoxButton>
           </div>
         </div>

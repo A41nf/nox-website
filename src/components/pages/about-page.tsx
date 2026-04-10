@@ -1,17 +1,26 @@
 "use client";
 
 import { aboutPillars, contactDetails, languageItems } from "@/src/data/site-content";
+import { useLocale } from "@/lib/i18n";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
 
 export function AboutPage() {
+  const { t, isArabic } = useLocale();
+  const about = t.about;
+  const pillars = aboutPillars.map((pillar, index) => ({
+    ...pillar,
+    title: about.values[index]?.title ?? pillar.title,
+    text: about.values[index]?.description ?? pillar.text,
+  }));
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <div dir={isArabic ? "rtl" : "ltr"} className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
-          eyebrow="عن الاستوديو"
-          title="NOX بُني ليكون تجربة تدريب خاصة لا مساحة ازدحام"
-          description="نحن نؤمن أن العميل الجاد لا يحتاج ضجيجاً أكثر، بل يحتاج بيئة محسوبة، مدرباً واضحاً، ومساراً عملياً يترجم الهدف إلى التزام أسبوعي."
+          eyebrow={about.label}
+          title={about.title}
+          description={about.body1}
           as="h1"
         />
       </Reveal>
@@ -21,10 +30,10 @@ export function AboutPage() {
           <section className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-8">
             <h2 className="text-2xl font-black text-white">الهوية</h2>
             <p className="mt-5 text-base leading-8 text-white/80">
-              NOX اختصار لـ No Excuse Personal Training. الهوية كلها تدور حول الصراحة، الانضباط، والمستوى العالي في كل تفصيلة من لحظة الوصول إلى تقييم النتائج.
+              {about.body1}
             </p>
             <p className="mt-5 text-base leading-8 text-white/80">
-              نعتمد العربية لغة افتراضية لأن السوق المحلي يستحق تجربة راقية تتحدث بلغته أولاً، مع قابلية واضحة للتوسع إلى الإنجليزية، الفرنسية، والهندية لعملاء مسقط المتنوعين.
+              {about.body2}
             </p>
           </section>
         </Reveal>
@@ -43,7 +52,7 @@ export function AboutPage() {
       </div>
 
       <div className="mt-14 grid gap-6 md:grid-cols-3">
-        {aboutPillars.map((pillar, index) => (
+        {pillars.map((pillar, index) => (
           <Reveal key={pillar.title} delay={index * 0.08}>
             <article className="rounded-[1.8rem] border border-white/10 bg-black/50 p-7">
               <p className="text-sm font-bold tracking-[0.3em] text-[#E80028]">0{index + 1}</p>

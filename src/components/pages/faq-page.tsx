@@ -3,21 +3,36 @@
 import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
 
-import { contactDetails, faqItems } from "@/src/data/site-content";
+import type { FaqItem } from "@/lib/types";
+import { useLocale } from "@/lib/i18n";
+import { contactDetails } from "@/src/data/site-content";
 import { NoxButton } from "@/src/components/ui/nox-button";
 import { Reveal } from "@/src/components/ui/reveal";
 import { SectionHeading } from "@/src/components/ui/section-heading";
 
-export function FaqPage() {
+export function FaqPage({ faqItems }: { faqItems?: FaqItem[] | null }) {
+  const { t, isArabic } = useLocale();
+  const page = t.faq;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const sanityFaqItems = faqItems ?? [];
+  const hasSanityFaqItems = sanityFaqItems.length > 0;
+  const items = hasSanityFaqItems
+    ? sanityFaqItems.map((item) => ({
+        question: isArabic ? item.questionAr ?? item.question : item.question,
+        answer: isArabic ? item.answerAr ?? item.answer : item.answer,
+      }))
+    : page.questions.map((item) => ({
+        question: item.question,
+        answer: item.answer,
+      }));
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
+    <div dir={isArabic ? "rtl" : "ltr"} className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
       <Reveal>
         <SectionHeading
-          eyebrow="FAQ"
-          title="الأسئلة الشائعة"
-          description="إجابات أولية على أكثر الأسئلة التي تصلنا حول التدريب الشخصي، الجلسات، الاشتراك، وطريقة البداية داخل NOX في مسقط."
+          eyebrow={page.label}
+          title={page.title}
+          description={page.description}
           as="h1"
         />
       </Reveal>
@@ -25,24 +40,24 @@ export function FaqPage() {
       <div className="mt-14 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
           <section className="rounded-[2rem] border border-[#E80028]/25 bg-[linear-gradient(180deg,rgba(232,0,40,0.14),rgba(255,255,255,0.03))] p-8">
-            <p className="text-sm font-bold tracking-[0.3em] text-white/70">FAQ</p>
-            <h2 className="mt-5 text-3xl font-black text-white">إذا كان سؤالك عملياً فالإجابة يجب أن تكون كذلك</h2>
+            <p className="text-sm font-bold tracking-[0.3em] text-white/70">{page.label}</p>
+            <h2 className="mt-5 text-3xl font-black text-white">{page.title}</h2>
             <p className="mt-5 text-base leading-8 text-white/80">
-              جمعنا هنا أكثر النقاط التي تهم العملاء قبل البداية. وإذا كانت حالتك تحتاج جواباً أدق، تواصل معنا مباشرة وسنقترح المسار المناسب.
+              {page.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <NoxButton href={contactDetails.whatsapp} target="_blank" rel="noreferrer">
-                اسألنا عبر واتساب
+                {t.contact.whatsapp}
               </NoxButton>
               <NoxButton href="/contact" variant="secondary">
-                صفحة التواصل
+                {t.contact.label}
               </NoxButton>
             </div>
           </section>
         </Reveal>
 
         <div className="space-y-4">
-          {faqItems.map((item, index) => {
+          {items.map((item, index) => {
             const isOpen = openIndex === index;
             const Icon = isOpen ? Minus : Plus;
 
