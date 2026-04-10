@@ -21,6 +21,58 @@ type InstagramResponse = {
   error?: string;
 };
 
+const MOCK_POSTS: InstagramPost[] = [
+  {
+    id: "mock-1",
+    caption: "جلسة صباحية مع Coach Adam — الثبات والتركيز هما السر. #NOX #تدريب_شخصي",
+    media_type: "IMAGE",
+    media_url: "https://picsum.photos/seed/nox-ig-1/600/600",
+    permalink: "https://instagram.com",
+    timestamp: new Date().toISOString(),
+  },
+  {
+    id: "mock-2",
+    caption: "EMS Training — 20 دقيقة تساوي ساعة تمرين تقليدي. النتائج تتحدث عن نفسها. #EMS #NOX",
+    media_type: "IMAGE",
+    media_url: "https://picsum.photos/seed/nox-ig-2/600/600",
+    permalink: "https://instagram.com",
+    timestamp: new Date().toISOString(),
+  },
+  {
+    id: "mock-3",
+    caption: "تحول حقيقي في 12 أسبوع. الإرادة + البرنامج الصح = نتائج لا تنكسر. #NOX #Transformation",
+    media_type: "IMAGE",
+    media_url: "https://picsum.photos/seed/nox-ig-3/600/600",
+    permalink: "https://instagram.com",
+    timestamp: new Date().toISOString(),
+  },
+  {
+    id: "mock-4",
+    caption: "Coach Layla في جلسة إعادة تأهيل — الحركة الصح تبدأ من الأساس. #Rehab #NOX",
+    media_type: "IMAGE",
+    media_url: "https://picsum.photos/seed/nox-ig-4/600/600",
+    permalink: "https://instagram.com",
+    timestamp: new Date().toISOString(),
+  },
+  {
+    id: "mock-5",
+    caption: "الاستوديو جاهز. هل أنت جاهز؟ احجز جلستك الأولى الآن. #NOX #Muscat",
+    media_type: "VIDEO",
+    media_url: "https://picsum.photos/seed/nox-ig-5/600/600",
+    thumbnail_url: "https://picsum.photos/seed/nox-ig-5/600/600",
+    permalink: "https://instagram.com",
+    timestamp: new Date().toISOString(),
+  },
+  {
+    id: "mock-6",
+    caption: "قوة + تكييف + تركيز — هذا هو NOX. #StrengthTraining #NOX #مسقط",
+    media_type: "IMAGE",
+    media_url: "https://picsum.photos/seed/nox-ig-6/600/600",
+    permalink: "https://instagram.com",
+    timestamp: new Date().toISOString(),
+  },
+];
+
 function truncateCaption(caption?: string) {
   if (!caption) {
     return "تابع أحدث لحظات NOX على إنستغرام.";
@@ -33,8 +85,6 @@ function InstagramSlider() {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [posts, setPosts] = useState<InstagramPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [retryKey, setRetryKey] = useState(0);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
 
@@ -43,24 +93,15 @@ function InstagramSlider() {
 
     async function loadPosts() {
       setIsLoading(true);
-      setError(null);
 
       try {
         const res = await fetch("/api/instagram", { signal: controller.signal });
         const data = (await res.json()) as InstagramResponse;
-
-        if (!res.ok) {
-          throw new Error(data.error ?? "Failed to load Instagram posts");
+        setPosts(res.ok ? (data.posts ?? MOCK_POSTS) : MOCK_POSTS);
+      } catch {
+        if (!controller.signal.aborted) {
+          setPosts(MOCK_POSTS);
         }
-
-        setPosts(data.posts ?? []);
-      } catch (err) {
-        if (controller.signal.aborted) {
-          return;
-        }
-
-        setPosts([]);
-        setError(err instanceof Error ? err.message : "Failed to load Instagram posts");
       } finally {
         if (!controller.signal.aborted) {
           setIsLoading(false);
@@ -71,7 +112,7 @@ function InstagramSlider() {
     void loadPosts();
 
     return () => controller.abort();
-  }, [retryKey]);
+  }, []);
 
   useEffect(() => {
     const slider = sliderRef.current;
@@ -131,30 +172,6 @@ function InstagramSlider() {
     );
   }
 
-  if (error) {
-    return (
-      <div className="mt-12 rounded-[2rem] border border-[#E80028]/30 bg-[linear-gradient(135deg,rgba(232,0,40,0.12),rgba(255,255,255,0.03),rgba(13,13,13,1))] p-8 text-center">
-        <p className="text-xl font-black text-white">تعذر تحميل منشورات إنستغرام</p>
-        <p className="mt-3 text-base leading-8 text-white/75">{error}</p>
-        <button
-          type="button"
-          onClick={() => setRetryKey((current) => current + 1)}
-          className="mt-6 inline-flex items-center justify-center rounded-full border border-[#E80028] bg-[#E80028] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#c70023] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
-        >
-          إعادة المحاولة
-        </button>
-      </div>
-    );
-  }
-
-  if (!posts.length) {
-    return (
-      <div className="mt-12 rounded-[2rem] border border-white/10 bg-white/[0.04] px-6 py-14 text-center">
-        <p className="text-xl font-black text-white">لا توجد منشورات حديثة حالياً</p>
-        <p className="mt-3 text-base leading-8 text-white/75">أضف التوكن وستظهر آخر تحديثات NOX هنا تلقائياً.</p>
-      </div>
-    );
-  }
 
   return (
     <div className="relative mt-12">
