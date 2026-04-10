@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LocaleProvider } from "@/lib/i18n";
+import { ChatWidget } from "@/src/components/chat/chat-widget";
 import { Footer } from "@/src/components/layout/footer";
 import { HtmlDirSync } from "@/src/components/layout/html-dir-sync";
 import { Navbar } from "@/src/components/layout/navbar";
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Navbar />
           <main id="main-content">{children}</main>
           <Footer />
+          <ChatWidget />
         </LocaleProvider>
       </body>
     </html>
