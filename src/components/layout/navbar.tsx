@@ -52,7 +52,7 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-md text-sm font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] ${active ? "text-[#E80028]" : "text-white/85 hover:text-white"}`}
+                  className={`rounded-md text-sm font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D] ${active ? "bg-white px-2 py-0.5 text-[#E80028]" : "text-white/85 hover:text-white"}`}
                 >
                   {item.label}
                 </Link>

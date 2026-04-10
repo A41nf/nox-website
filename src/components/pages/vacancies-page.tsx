@@ -61,7 +61,7 @@ export function VacanciesPage({ vacancies }: VacanciesPageProps) {
         <div className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24">
           <Reveal>
             <div className="max-w-4xl text-right">
-              <p className="text-xs font-bold tracking-[0.35em] text-[#E80028]">CAREERS</p>
+              <p className="inline-block rounded bg-white px-2 py-0.5 text-xs font-bold tracking-[0.35em] text-[#E80028]">CAREERS</p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-6xl">
                 انضم إلى فريق NOX
               </h1>

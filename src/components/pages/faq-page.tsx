@@ -70,7 +70,7 @@ export function FaqPage({ faqItems }: { faqItems?: FaqItem[] | null }) {
                     aria-expanded={isOpen}
                     className="flex w-full items-center justify-between gap-4 px-6 py-5 text-right transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D0D0D]"
                   >
-                    <span className={`text-lg font-black ${isOpen ? "text-[#E80028]" : "text-white"}`}>
+                    <span className={`text-lg font-black ${isOpen ? "rounded bg-white px-2 py-0.5 text-[#E80028]" : "text-white"}`}>
                       {item.question}
                     </span>
                     <span

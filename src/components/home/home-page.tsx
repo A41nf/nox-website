@@ -40,7 +40,7 @@ function HeroSection() {
       <div className="mx-auto grid min-h-[calc(100vh-81px)] max-w-7xl items-center gap-12 px-4 py-16 md:px-8 lg:grid-cols-[1.15fr_0.85fr]">
         <Reveal>
           <div>
-            <p className="text-xs font-bold tracking-[0.4em] text-[#E80028]">NO EXCUSE PERSONAL TRAINING</p>
+            <p className="inline-block rounded bg-white px-2 py-0.5 text-xs font-bold tracking-[0.4em] text-[#E80028]">NO EXCUSE PERSONAL TRAINING</p>
             <h1 className="mt-6 text-5xl font-black leading-[1.05] text-white md:text-7xl lg:text-[5.8rem]">
               تدريب خاص
               <span className="block text-[#E80028]">بشدة نخبوية</span>
@@ -65,7 +65,7 @@ function HeroSection() {
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {heroStats.map((stat) => (
                   <div key={stat.label} className="rounded-2xl border border-white/10 bg-black/40 p-4">
-                    <p className="text-3xl font-black text-[#E80028]">{stat.value}</p>
+                    <p className="inline-block rounded bg-white px-2 py-0.5 text-3xl font-black text-[#E80028]">{stat.value}</p>
                     <p className="mt-2 text-sm leading-7 text-white/80">{stat.label}</p>
                   </div>
                 ))}
@@ -97,7 +97,7 @@ function AboutTeaser() {
         {aboutPillars.map((pillar, index) => (
           <Reveal key={pillar.title} delay={index * 0.08}>
             <article className="h-full rounded-[1.8rem] border border-white/10 bg-white/[0.04] p-7">
-              <p className="text-sm font-bold tracking-[0.3em] text-[#E80028]">0{index + 1}</p>
+              <p className="inline-block rounded bg-white px-2 py-0.5 text-sm font-bold tracking-[0.3em] text-[#E80028]">0{index + 1}</p>
               <h3 className="mt-5 text-2xl font-black text-white">{pillar.title}</h3>
               <p className="mt-4 text-base leading-8 text-white/80">{pillar.text}</p>
             </article>
@@ -132,7 +132,7 @@ function ServicesTeaser() {
                     <span className="text-sm text-white/80">{service.duration}</span>
                   </div>
                   <h3 className="mt-6 text-2xl font-black text-white">{service.title}</h3>
-                  <p className="mt-3 text-sm text-[#E80028]">{service.subtitle}</p>
+                  <p className="mt-3 inline-block rounded bg-white px-2 py-0.5 text-sm text-[#E80028]">{service.subtitle}</p>
                   <p className="mt-5 text-base leading-8 text-white/80">{service.description}</p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {service.bullets.slice(0, 3).map((bullet) => (
@@ -198,7 +198,7 @@ function CoachesTeaser() {
           {coaches.map((coach, index) => (
             <Reveal key={coach.name} delay={index * 0.08}>
               <article className="h-full rounded-[2rem] border border-white/10 bg-black/55 p-7">
-                <p className="text-sm tracking-[0.3em] text-[#E80028]">{coach.role}</p>
+                <p className="inline-block rounded bg-white px-2 py-0.5 text-sm tracking-[0.3em] text-[#E80028]">{coach.role}</p>
                 <h3 className="mt-4 text-2xl font-black text-white">{coach.name}</h3>
                 <p className="mt-4 text-base leading-8 text-white/80">{coach.bio}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
@@ -238,7 +238,7 @@ function TestimonialsSection() {
               <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/10 pt-5">
                 <div>
                   <p className="font-black text-white">{item.name}</p>
-                  <p className="mt-1 text-sm text-[#E80028]">{item.result}</p>
+                  <p className="mt-1 inline-block rounded bg-white px-2 py-0.5 text-sm text-[#E80028]">{item.result}</p>
                 </div>
                 <ArrowUpLeft className="text-white/80" size={18} />
               </div>
@@ -280,7 +280,7 @@ function ContactTeaser() {
       <Reveal>
         <div className="grid gap-6 rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 md:grid-cols-[1fr_auto] md:items-center">
           <div>
-            <p className="text-xs font-bold tracking-[0.35em] text-[#E80028]">CONTACT</p>
+            <p className="inline-block rounded bg-white px-2 py-0.5 text-xs font-bold tracking-[0.35em] text-[#E80028]">CONTACT</p>
             <h2 className="mt-4 text-3xl font-black text-white">تواصل معنا وحدد موعدك الأول</h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-white/80">
               {contactDetails.address}، {contactDetails.hours}. يمكنك التواصل عبر الهاتف، البريد، أو واتساب.

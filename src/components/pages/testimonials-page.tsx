@@ -57,7 +57,7 @@ export function TestimonialsPage({ testimonials }: { testimonials?: Testimonial[
               key={stat}
               className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center"
             >
-              <p className="text-3xl font-black text-[#E80028]">{["+200", "91%", "4.9★"][index] ?? ""}</p>
+              <p className="inline-block rounded bg-white px-2 py-0.5 text-3xl font-black text-[#E80028]">{["+200", "91%", "4.9★"][index] ?? ""}</p>
               <p className="mt-1 text-sm text-white/60">{stat}</p>
             </div>
           ))}
@@ -79,7 +79,7 @@ export function TestimonialsPage({ testimonials }: { testimonials?: Testimonial[
               </p>
               <div className="mt-6 border-t border-white/10 pt-5">
                 <p className="text-lg font-black text-white">{item.name}</p>
-                <p className="mt-1 text-sm font-semibold text-[#E80028]">
+                <p className="mt-1 inline-block rounded bg-white px-2 py-0.5 text-sm font-semibold text-[#E80028]">
                   {item.result}
                 </p>
               </div>

@@ -21,9 +21,9 @@ type DaySchedule = {
 };
 
 const slotColors: Record<ScheduleSlot["type"], string> = {
-  personal: "bg-[#E80028]/15 border-[#E80028]/30 text-[#E80028]",
+  personal: "bg-white border-[#E80028]/30 text-[#E80028]",
   group: "bg-white/10 border-white/20 text-white",
-  ems: "bg-[#E80028]/8 border-[#E80028]/20 text-[#E80028]/80",
+  ems: "bg-white border-[#E80028]/20 text-[#E80028]/80",
   off: "bg-white/[0.03] border-white/10 text-white/40",
 };
 

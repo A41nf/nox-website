@@ -58,7 +58,7 @@ export function ServicesPage({ services }: { services?: Service[] | null }) {
                     <Icon size={24} />
                   </div>
                   <h2 className="mt-6 text-3xl font-black text-white">{service.title}</h2>
-                  <p className="mt-3 text-base text-[#E80028]">{service.subtitle}</p>
+                  <p className="mt-3 inline-block rounded bg-white px-2 py-0.5 text-base text-[#E80028]">{service.subtitle}</p>
                   <p className="mt-5 text-base leading-8 text-white/80">{service.description}</p>
                 </div>
                 <div className="grid gap-5 md:grid-cols-2">

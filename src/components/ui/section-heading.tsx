@@ -17,7 +17,7 @@ export function SectionHeading({
 
   return (
     <div className={`max-w-3xl ${alignClass}`}>
-      <p className="text-xs font-bold tracking-[0.35em] text-[#E80028]">{eyebrow}</p>
+      <p className="inline-block rounded bg-white px-2 py-0.5 text-xs font-bold tracking-[0.35em] text-[#E80028]">{eyebrow}</p>
       <HeadingTag className="mt-4 text-3xl font-black leading-tight text-white md:text-5xl">
         {title}
       </HeadingTag>

@@ -223,7 +223,7 @@ function InstagramSlider() {
 
               <div className="p-5 text-right">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-xs font-bold tracking-[0.28em] text-[#E80028]">INSTAGRAM</span>
+                  <span className="inline-block rounded bg-white px-2 py-0.5 text-xs font-bold tracking-[0.28em] text-[#E80028]">INSTAGRAM</span>
                   <ExternalLink size={16} className="text-white/45 transition group-hover:text-white" aria-hidden />
                 </div>
                 <p className="mt-4 min-h-[3.5rem] text-sm leading-7 text-white/80">{truncateCaption(post.caption)}</p>

@@ -75,12 +75,12 @@ const guidesData: GuideCard[] = [
 ];
 
 const categoryColors: Record<string, string> = {
-  "للمبتدئين": "bg-[#E80028]/15 text-[#E80028]",
+  "للمبتدئين": "bg-white text-[#E80028]",
   "تغذية": "bg-white/10 text-white/80",
-  "تكوين الجسم": "bg-[#E80028]/10 text-[#E80028]/80",
+  "تكوين الجسم": "bg-white text-[#E80028]/80",
   "قوة وأداء": "bg-white/10 text-white/80",
   "تعافي": "bg-white/10 text-white/80",
-  "EMS": "bg-[#E80028]/15 text-[#E80028]",
+  "EMS": "bg-white text-[#E80028]",
   "صحة وأداء": "bg-white/10 text-white/80",
   "الخدمات": "bg-white/10 text-white/80",
 };

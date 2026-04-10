@@ -55,7 +55,7 @@ export function AboutPage() {
         {pillars.map((pillar, index) => (
           <Reveal key={pillar.title} delay={index * 0.08}>
             <article className="rounded-[1.8rem] border border-white/10 bg-black/50 p-7">
-              <p className="text-sm font-bold tracking-[0.3em] text-[#E80028]">0{index + 1}</p>
+              <p className="inline-block rounded bg-white px-2 py-0.5 text-sm font-bold tracking-[0.3em] text-[#E80028]">0{index + 1}</p>
               <h3 className="mt-5 text-2xl font-black text-white">{pillar.title}</h3>
               <p className="mt-4 text-base leading-8 text-white/80">{pillar.text}</p>
             </article>

@@ -15,7 +15,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-bold tracking-[0.28em] text-[#E80028]">التنقل</h3>
+          <h3 className="inline-block rounded bg-white px-2 py-0.5 text-sm font-bold tracking-[0.28em] text-[#E80028]">التنقل</h3>
           <div className="mt-5 flex flex-col gap-3">
             {navItems.map((item) => (
               <Link
@@ -30,7 +30,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-bold tracking-[0.28em] text-[#E80028]">التواصل</h3>
+          <h3 className="inline-block rounded bg-white px-2 py-0.5 text-sm font-bold tracking-[0.28em] text-[#E80028]">التواصل</h3>
           <div className="mt-5 space-y-3 text-sm text-white/80">
             <p>{contactDetails.address}</p>
             <a
@@ -57,7 +57,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-bold tracking-[0.28em] text-[#E80028]">انضم إلينا</h3>
+          <h3 className="inline-block rounded bg-white px-2 py-0.5 text-sm font-bold tracking-[0.28em] text-[#E80028]">انضم إلينا</h3>
           <div className="mt-5 flex flex-col gap-3">
             <Link
               href="/careers"
