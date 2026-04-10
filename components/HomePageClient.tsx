@@ -17,6 +17,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import Button from "@/components/ui/Button";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { FRESHA_URL, useLocale } from "@/lib/i18n";
+import { InstagramSection } from "@/src/components/home/instagram-slider";
 import type { SiteSettings, Testimonial } from "@/lib/types";
 
 const serviceIcons = [Dumbbell, Activity, Users];
@@ -67,6 +68,7 @@ export default function HomePageClient({ featuredTestimonials, siteSettings }: H
       <WhyNoxSection />
       <CoachesSection />
       <TestimonialsSection testimonials={featuredTestimonials} />
+      <InstagramSection />
       <CtaBanner freshaUrl={freshaUrl} />
       <ContactStrip siteSettings={siteSettings} />
       <FaqSection />
