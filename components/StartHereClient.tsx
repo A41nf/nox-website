@@ -36,7 +36,7 @@ export default function StartHereClient() {
         </div>
 
         <div className="rounded-2xl border border-nox-red/25 bg-nox-grey/60 p-6">
-          <p className="text-xs uppercase tracking-[0.18em] text-nox-red">{s.ctaLabel}</p>
+          <p className="inline-block rounded bg-white px-1 py-0.5 text-xs uppercase tracking-[0.18em] text-nox-red">{s.ctaLabel}</p>
           <h3 className="mt-4 text-3xl font-black uppercase text-white">{s.ctaTitle}</h3>
           <p className="mt-4 text-sm leading-relaxed text-white/75">{s.ctaDescription}</p>
           <Button href="/contact" className="mt-6">

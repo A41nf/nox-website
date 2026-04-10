@@ -119,7 +119,7 @@ export default function CoachesClient({ coaches }: CoachesClientProps) {
                 {((isArabic ? coach.specialtiesAr ?? coach.specialties : coach.specialties) ?? []).map((specialty) => (
                   <span
                     key={specialty}
-                    className="rounded-full border border-nox-red/70 bg-nox-red/20 px-3 py-1 text-xs font-medium uppercase tracking-wide text-nox-red"
+                    className="rounded-full bg-white px-3 py-1 text-xs font-medium uppercase tracking-wide text-nox-red"
                   >
                     {specialty}
                   </span>

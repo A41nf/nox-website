@@ -38,11 +38,11 @@ export default function Footer() {
     <footer className="mt-20 bg-black text-white">
       <div className="mx-auto grid w-full max-w-7xl gap-12 px-4 py-14 md:grid-cols-2 md:px-8 lg:grid-cols-6">
         <div className="lg:col-span-2">
-          <Link href="/" className="inline-flex flex-col">
+          <Link href="/" className="inline-flex flex-col" aria-label="NOX — No Excuse Personal Training, home page">
             <span className="text-3xl font-black tracking-[0.24em]">
               NO<span className="text-nox-red">X</span>
             </span>
-            <span className="mt-1 text-xs uppercase tracking-[0.18em] text-nox-red">
+            <span className="mt-1 inline-block rounded bg-white px-1 py-0.5 text-xs uppercase tracking-[0.18em] text-nox-red">
               No Excuse Personal Training
             </span>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/75">
@@ -106,7 +106,7 @@ type FooterColumnProps = {
 function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-nox-red">
+      <h3 className="inline-block rounded bg-white px-1 py-0.5 text-sm font-semibold uppercase tracking-[0.14em] text-nox-red">
         {title}
       </h3>
       <ul className="mt-4 space-y-3 text-sm text-white/80">

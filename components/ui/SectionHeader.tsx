@@ -19,7 +19,7 @@ export default function SectionHeader({
 
   return (
     <div className={isCenter ? "text-center" : "text-start"}>
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-nox-red">
+      <p className="inline-block rounded bg-white px-1 py-0.5 text-xs font-semibold uppercase tracking-[0.2em] text-nox-red">
         {label}
       </p>
       <HeadingTag

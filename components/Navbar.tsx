@@ -55,11 +55,12 @@ export default function Navbar() {
         <Link
           href="/"
           className="group inline-flex flex-col leading-none"
+          aria-label="NOX — No Excuse Personal Training, home page"
         >
           <span className="text-2xl font-black tracking-[0.28em] text-white md:text-3xl">
             NO<span className="text-nox-red">X</span>
           </span>
-          <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-nox-red md:text-xs">
+          <span className="mt-1 inline-block rounded bg-white px-1 py-0.5 text-[10px] uppercase tracking-[0.2em] text-nox-red md:text-xs">
             No Excuse Personal Training
           </span>
         </Link>
@@ -151,7 +152,7 @@ export default function Navbar() {
             type="button"
             onClick={toggleLocale}
             className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 px-4 text-sm font-semibold uppercase tracking-[0.18em] text-white/80 transition-colors hover:border-nox-red hover:text-white"
-            aria-label="EN | AR toggle language"
+            aria-label="EN AR — toggle language"
           >
             EN <span className="text-white/40" aria-hidden="true">|</span>{" "}
             <span className="arabic font-cairo">AR</span>
@@ -174,7 +175,7 @@ export default function Navbar() {
             type="button"
             onClick={toggleLocale}
             className="rounded-full border border-white/20 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85"
-            aria-label="EN | AR toggle language"
+            aria-label="EN AR — toggle language"
           >
             EN | <span className="arabic font-cairo">AR</span>
           </button>
@@ -227,7 +228,7 @@ export default function Navbar() {
               </li>
               <li className="rounded-2xl border border-white/10 bg-nox-grey/40 p-3">
                 <p
-                  className={`px-2 text-xs font-semibold uppercase tracking-[0.2em] text-nox-red ${
+                  className={`rounded bg-white px-2 text-xs font-semibold uppercase tracking-[0.2em] text-nox-red ${
                     useArabicStyles ? "arabic font-cairo" : ""
                   }`}
                 >
