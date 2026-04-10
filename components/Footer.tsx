@@ -42,7 +42,7 @@ export default function Footer() {
             <span className="text-3xl font-black tracking-[0.24em]">
               NO<span className="text-nox-red">X</span>
             </span>
-            <span className="mt-1 inline-block rounded bg-white px-1 py-0.5 text-xs uppercase tracking-[0.18em] text-nox-red">
+            <span className="mt-1 inline-block rounded bg-gradient-to-r from-nox-red to-red-700 px-1 py-0.5 text-xs uppercase tracking-[0.18em] text-white">
               No Excuse Personal Training
             </span>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/75">
@@ -106,7 +106,7 @@ type FooterColumnProps = {
 function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <h3 className="inline-block rounded bg-white px-1 py-0.5 text-sm font-semibold uppercase tracking-[0.14em] text-nox-red">
+      <h3 className="inline-block rounded bg-gradient-to-r from-nox-red to-red-700 px-1 py-0.5 text-sm font-semibold uppercase tracking-[0.14em] text-white">
         {title}
       </h3>
       <ul className="mt-4 space-y-3 text-sm text-white/80">

@@ -118,7 +118,7 @@ function HeroSection({ freshaUrl }: { freshaUrl: string }) {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 inline-block rounded bg-white px-1 py-0.5 text-xs uppercase tracking-[0.24em] text-nox-red"
+          className="mb-6 inline-block rounded bg-gradient-to-r from-nox-red to-red-700 px-1 py-0.5 text-xs uppercase tracking-[0.24em] text-white"
         >
           {t.hero.eyebrow}
         </motion.p>
@@ -173,7 +173,7 @@ function StatsBar() {
       <div className="mx-auto grid w-full max-w-7xl grid-cols-2 gap-6 px-4 md:grid-cols-4 md:px-8">
         {t.home.stats.map((stat: { label: string }, i: number) => (
           <article key={stat.label} className="text-center">
-            <p className="inline-block rounded bg-white px-2 py-0.5 text-3xl font-black text-nox-red md:text-4xl">
+            <p className="inline-block rounded bg-gradient-to-r from-nox-red to-red-700 px-2 py-0.5 text-3xl font-black text-white md:text-4xl">
               <AnimatedCounter target={statValues[i].value} suffix={statValues[i].suffix} />
             </p>
             <p className="mt-2 text-xs uppercase tracking-[0.16em] text-white/80 md:text-sm">
@@ -265,7 +265,7 @@ function WhyNoxSection() {
                   <Icon size={20} aria-hidden />
                 </div>
                 <div>
-                  <p className="inline-block rounded bg-white px-1 py-0.5 text-xs uppercase tracking-[0.2em] text-nox-red">0{index + 1}</p>
+                  <p className="inline-block rounded bg-gradient-to-r from-nox-red to-red-700 px-1 py-0.5 text-xs uppercase tracking-[0.2em] text-white">0{index + 1}</p>
                   <h3 className="mt-1 text-xl font-bold">{reason.title}</h3>
                   <p className="mt-2 text-sm text-white/75">{reason.description}</p>
                 </div>
@@ -302,7 +302,7 @@ function CoachesSection() {
                 <h3 className="text-xl font-bold">{coach.name}</h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {coach.specialties.map((tag) => (
-                    <span key={tag} className="rounded-full bg-white px-3 py-1 text-xs font-medium uppercase tracking-wide text-nox-red">
+                    <span key={tag} className="rounded-full bg-gradient-to-r from-nox-red to-red-700 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white">
                       {tag}
                     </span>
                   ))}
@@ -345,7 +345,7 @@ function TestimonialsSection({ testimonials }: { testimonials?: Testimonial[] | 
               <p className="text-4xl font-black leading-none text-nox-red" aria-hidden>&quot;</p>
               <p className="mt-3 text-sm leading-relaxed text-white/85">{testimonial.quote}</p>
               <p className="mt-5 text-base font-semibold">{testimonial.name}</p>
-              <p className="inline-block rounded bg-white px-1 py-0.5 text-xs uppercase tracking-[0.15em] text-nox-red">{testimonial.result}</p>
+              <p className="inline-block rounded bg-gradient-to-r from-nox-red to-red-700 px-1 py-0.5 text-xs uppercase tracking-[0.15em] text-white">{testimonial.result}</p>
             </article>
           ))}
         </div>
@@ -387,15 +387,15 @@ function ContactStrip({ siteSettings }: { siteSettings?: SiteSettings | null }) 
     <section className="bg-black py-10">
       <div className="mx-auto grid w-full max-w-7xl gap-5 px-4 md:grid-cols-4 md:items-center md:px-8">
         <div>
-          <p className="inline-block rounded bg-white px-1 py-0.5 text-xs uppercase tracking-[0.16em] text-nox-red">{h.addressLabel}</p>
+          <p className="inline-block rounded bg-gradient-to-r from-nox-red to-red-700 px-1 py-0.5 text-xs uppercase tracking-[0.16em] text-white">{h.addressLabel}</p>
           <p className="mt-1 text-sm text-white/85">{address}</p>
         </div>
         <div>
-          <p className="inline-block rounded bg-white px-1 py-0.5 text-xs uppercase tracking-[0.16em] text-nox-red">{h.phoneLabel}</p>
+          <p className="inline-block rounded bg-gradient-to-r from-nox-red to-red-700 px-1 py-0.5 text-xs uppercase tracking-[0.16em] text-white">{h.phoneLabel}</p>
           <a href={`tel:${settings.phone}`} className="mt-1 inline-block text-sm text-white/85">{settings.phone}</a>
         </div>
         <div>
-          <p className="inline-block rounded bg-white px-1 py-0.5 text-xs uppercase tracking-[0.16em] text-nox-red">{h.hoursLabel}</p>
+          <p className="inline-block rounded bg-gradient-to-r from-nox-red to-red-700 px-1 py-0.5 text-xs uppercase tracking-[0.16em] text-white">{h.hoursLabel}</p>
           <p className="mt-1 text-sm text-white/85">{hours}</p>
         </div>
         <Button href={getWhatsAppUrl(whatsapp)} target="_blank" rel="noopener noreferrer" className="justify-center">

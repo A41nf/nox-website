@@ -60,7 +60,7 @@ export default function Navbar() {
           <span className="text-2xl font-black tracking-[0.28em] text-white md:text-3xl">
             NO<span className="text-nox-red">X</span>
           </span>
-          <span className="mt-1 inline-block rounded bg-white px-1 py-0.5 text-[10px] uppercase tracking-[0.2em] text-nox-red md:text-xs">
+          <span className="mt-1 inline-block rounded bg-gradient-to-r from-nox-red to-red-700 px-1 py-0.5 text-[10px] uppercase tracking-[0.2em] text-white md:text-xs">
             No Excuse Personal Training
           </span>
         </Link>
@@ -228,7 +228,7 @@ export default function Navbar() {
               </li>
               <li className="rounded-2xl border border-white/10 bg-nox-grey/40 p-3">
                 <p
-                  className={`rounded bg-white px-2 text-xs font-semibold uppercase tracking-[0.2em] text-nox-red ${
+                  className={`rounded bg-gradient-to-r from-nox-red to-red-700 px-2 text-xs font-semibold uppercase tracking-[0.2em] text-white ${
                     useArabicStyles ? "arabic font-cairo" : ""
                   }`}
                 >

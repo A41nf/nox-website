@@ -37,7 +37,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
         {post.category ? (
-          <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-nox-red">
+          <span className="rounded-full bg-gradient-to-r from-nox-red to-red-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
             {t.blog.categories[post.category as keyof typeof t.blog.categories] ?? post.category}
           </span>
         ) : null}
